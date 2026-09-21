@@ -1,9 +1,12 @@
-﻿name: Facebook Auto-Post (Emoji of the Day)
+name: Facebook Auto-Post (Emoji of the Day)
 
 on:
   schedule:
-    # Runs twice a day at peak social hours (08:00 UTC & 17:00 UTC)
-    - cron: '0 8,17 * * *'
+    # Optimized for USA Audience Peak Engagement (EST, CST, PST):
+    # 13:00 UTC = 9:00 AM EST / 6:00 AM PST (Morning Coffee & iMessage)
+    # 17:00 UTC = 1:00 PM EST / 10:00 AM PST (Coast-to-Coast Lunch Break)
+    # 00:00 UTC = 8:00 PM EST / 5:00 PM PST (US Prime Time Evening Scrolling)
+    - cron: '0 13,17,0 * * *'
   workflow_dispatch:
     inputs:
       emoji_slug:

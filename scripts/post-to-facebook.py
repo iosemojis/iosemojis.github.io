@@ -44,9 +44,9 @@ CATEGORY_HASHTAGS = {
 }
 
 CORE_HASHTAGS = [
-    "#iPhoneEmoji", "#AppleEmoji", "#iOSEmoji", "#iOSKeyboard",
-    "#WhatsAppEmoji", "#EmotiPhone", "#AppleStickers", "#AestheticEmojis",
-    "#EmojiMeaning", "#CopyEmoji"
+    "#iPhoneEmoji", "#AppleEmoji", "#iOSEmoji", "#iMessage",
+    "#iOSKeyboard", "#AppleAesthetic", "#iOS18", "#WhatsAppEmoji",
+    "#AppleStickers", "#AestheticEmojis", "#EmojiMeaning", "#TextingVibes"
 ]
 
 def load_json(path):
