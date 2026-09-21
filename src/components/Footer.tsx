@@ -18,6 +18,18 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <p className="text-neutral-500 dark:text-neutral-400 text-xs leading-relaxed mb-3">
               Fast, authentic Unicode emoji reference keyboard, contextual messaging dictionary, and developer copy snippets for iOS, Android, and Web.
             </p>
+            <div className="mt-3 pt-3 border-t border-neutral-100 dark:border-neutral-800 text-xs">
+              <span className="text-neutral-400">Featured Resource: </span>
+              <a
+                href="https://emojisymbols.netlify.app/"
+                target="_blank"
+                rel="noopener"
+                className="text-blue-600 dark:text-blue-400 hover:underline font-semibold inline-flex items-center gap-1"
+              >
+                <span>✨</span>
+                <span>Emoji Symbols &amp; Fancy Text Generator ↗</span>
+              </a>
+            </div>
           </div>
 
           {/* Col 2 */}

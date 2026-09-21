@@ -209,14 +209,14 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, searchInputRef }
       {/* Friendly, Inviting Hero Section */}
       <section className="text-center py-4 sm:py-8 max-w-3xl mx-auto">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 text-xs font-semibold mb-4 border border-blue-200/70 dark:border-blue-800/70 shadow-2xs">
-          <span>✨</span>
-          <span>Apple & iOS Emoji Directory • 3,786 Emojis</span>
+          <span>🌐</span>
+          <span>Universal Emojis for All Devices • Apple, Android & Web • 3,786 Emojis</span>
         </div>
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-neutral-900 dark:text-white mb-3.5 leading-tight">
           iOS Emoji & iPhone Keyboard
         </h1>
         <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto leading-relaxed">
-          Search, explore, and copy your favorite iPhone and Apple emojis in one click. Works seamlessly across WhatsApp, Instagram, TikTok, and Android.
+          Universal emoji keyboard for all devices and platforms. Search, explore, and copy authentic Apple, iOS, and Android emojis in one click. Works seamlessly across WhatsApp, Instagram, TikTok, iPhone, and Android.
         </p>
 
         {/* Live AJAX Search Bar Container */}
@@ -360,13 +360,14 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, searchInputRef }
               setSelectedCategory('all');
               trackEvent('category_click', { category: 'all' });
             }}
-            className={`min-h-[44px] px-4 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 cursor-pointer ${
+            className={`min-h-[44px] flex items-center gap-1.5 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 cursor-pointer ${
               selectedCategory === 'all'
                 ? 'bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 shadow-sm'
                 : 'bg-white dark:bg-neutral-800/90 text-neutral-700 dark:text-neutral-300 border border-neutral-200/90 dark:border-neutral-700/80 hover:bg-neutral-50 dark:hover:bg-neutral-700'
             }`}
           >
-            All ({EMOJIS.length.toLocaleString()})
+            <span>🌐</span>
+            <span>Universal Emojis ({EMOJIS.length.toLocaleString()})</span>
           </button>
           {CATEGORIES.filter((cat) => {
             if (categoryTypeFilter === 'conventional') return cat.isConventional;
