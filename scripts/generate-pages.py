@@ -607,7 +607,8 @@ def generate_pages():
             <div class="bg-neutral-50 p-6 rounded-2xl border border-neutral-200 max-w-lg">
               <h3 class="font-bold text-neutral-900 mb-2">Editorial & Technical Support</h3>
               <p class="text-sm text-neutral-600 mb-4">Reach out to our dataset curators via email:</p>
-              <div class="font-mono text-sm font-semibold text-blue-600">curators@iosemojis.github.io</div>
+              <a href="mailto:calligraphyeasy@gmail.com" class="font-mono text-sm font-bold text-blue-600 hover:underline block">calligraphyeasy@gmail.com</a>
+              <div class="text-xs text-neutral-500 mt-2">Direct / Alternative: <a href="mailto:seoprasoon@gmail.com" class="text-blue-600 hover:underline">seoprasoon@gmail.com</a></div>
             </div>
             """
         ),

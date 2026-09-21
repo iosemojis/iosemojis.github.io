@@ -75,8 +75,14 @@ export const TrustView: React.FC<TrustViewProps> = ({ slug, onNavigate }) => {
           <div className="bg-neutral-50 p-6 rounded-2xl border border-neutral-200 max-w-md my-4">
             <h3 className="font-bold text-neutral-900 mb-1">Editorial & Technical Team</h3>
             <p className="text-xs text-neutral-500 mb-3">Direct all inquiries to:</p>
-            <div className="font-mono text-sm font-bold text-blue-600">
-              curators@iosemojis.github.io
+            <a href="mailto:calligraphyeasy@gmail.com" className="font-mono text-sm font-bold text-blue-600 hover:underline block">
+              calligraphyeasy@gmail.com
+            </a>
+            <div className="text-xs text-neutral-500 mt-2">
+              Alternative:{' '}
+              <a href="mailto:seoprasoon@gmail.com" className="text-blue-600 hover:underline">
+                seoprasoon@gmail.com
+              </a>
             </div>
           </div>
         </div>
