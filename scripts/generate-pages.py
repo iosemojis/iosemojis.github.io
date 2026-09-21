@@ -603,12 +603,21 @@ def generate_pages():
         html_content = f"""<!doctype html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JL0C3QP4F5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){{dataLayer.push(arguments);}}
+    gtag('js', new Date());
+
+    gtag('config', 'G-JL0C3QP4F5');
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{page_title} | iOS Emoji</title>
   <meta name="description" content="{page_desc}" />
   <link rel="canonical" href="{canonical_url}" />
-  <link rel="stylesheet" href="/src/index.css" />
+  <link rel="stylesheet" href="/assets/index-DlYqaCrQ.css" />
 </head>
 <body class="bg-neutral-50 text-neutral-900 antialiased min-h-screen flex flex-col justify-between">
   {header_html}
