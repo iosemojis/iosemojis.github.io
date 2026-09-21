@@ -104,25 +104,41 @@
     }
     .custom-horizontal-scrollbar {
       scrollbar-width: thin !important;
-      scrollbar-color: #cbd5e1 transparent !important;
+      scrollbar-color: #64748b #e2e8f0 !important;
       scroll-behavior: smooth;
       -webkit-overflow-scrolling: touch;
       overflow-x: auto !important;
     }
     .custom-horizontal-scrollbar::-webkit-scrollbar {
-      height: 6px !important;
+      height: 10px !important;
       display: block !important;
     }
     .custom-horizontal-scrollbar::-webkit-scrollbar-track {
-      background: rgba(0, 0, 0, 0.05) !important;
+      background: #e2e8f0 !important;
       border-radius: 9999px !important;
     }
     .custom-horizontal-scrollbar::-webkit-scrollbar-thumb {
-      background: #cbd5e1 !important;
+      background: #64748b !important;
       border-radius: 9999px !important;
+      border: 2px solid #e2e8f0 !important;
     }
     .custom-horizontal-scrollbar::-webkit-scrollbar-thumb:hover {
-      background: #94a3b8 !important;
+      background: #334155 !important;
+    }
+    .dark .custom-horizontal-scrollbar {
+      scrollbar-color: #60a5fa #1e293b !important;
+    }
+    .dark .custom-horizontal-scrollbar::-webkit-scrollbar-track {
+      background: #1e293b !important;
+      border-radius: 9999px !important;
+    }
+    .dark .custom-horizontal-scrollbar::-webkit-scrollbar-thumb {
+      background: #60a5fa !important;
+      border-radius: 9999px !important;
+      border: 2px solid #1e293b !important;
+    }
+    .dark .custom-horizontal-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #93c5fd !important;
     }
   </style>
 </head>

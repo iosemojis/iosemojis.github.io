@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
-import { Copy, Download, ArrowRight, Search, X, Check, Sparkles } from 'lucide-react';
+import { Copy, Download, ArrowRight, Search, X, Check, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 import { EMOJIS, CATEGORIES, FESTIVALS, EmojiItem } from '../data/index.ts';
 import { searchEmojis } from '../utils/search.ts';
 import { copyToClipboard, generateCanvasPng, downloadDataUrl } from '../utils/download.ts';
@@ -22,6 +22,17 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, searchInputRef }
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
   const searchContainerRef = useRef<HTMLDivElement | null>(null);
+  const categoryScrollRef = useRef<HTMLDivElement | null>(null);
+
+  const scrollCategories = (direction: 'left' | 'right') => {
+    if (categoryScrollRef.current) {
+      const scrollAmount = 320;
+      categoryScrollRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   const [pageSize, setPageSize] = useState<number>(60);
   const [currentPage, setCurrentPage] = useState<number>(() => {
@@ -353,49 +364,82 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, searchInputRef }
           </button>
         </div>
 
-        <div className="flex items-center gap-2 overflow-x-auto pb-3 custom-horizontal-scrollbar">
+        <div className="relative flex items-center gap-2 group/carousel">
+          {/* Scroll Left Button */}
           <button
             type="button"
-            onClick={() => {
-              setSelectedCategory('all');
-              trackEvent('category_click', { category: 'all' });
-            }}
-            className={`min-h-[44px] flex items-center gap-1.5 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 cursor-pointer ${
-              selectedCategory === 'all'
-                ? 'bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 shadow-sm'
-                : 'bg-white dark:bg-neutral-800/90 text-neutral-700 dark:text-neutral-300 border border-neutral-200/90 dark:border-neutral-700/80 hover:bg-neutral-50 dark:hover:bg-neutral-700'
-            }`}
+            onClick={() => scrollCategories('left')}
+            className="flex items-center justify-center w-8.5 h-8.5 sm:w-9 sm:h-9 rounded-full bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-600 shadow-md hover:bg-neutral-100 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-100 shrink-0 transition-all hover:scale-105 active:scale-95 cursor-pointer z-10"
+            title="Scroll categories left"
+            aria-label="Scroll categories left"
           >
-            <span>🌐</span>
-            <span>Universal Emojis ({EMOJIS.length.toLocaleString()})</span>
+            <ChevronLeft className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
           </button>
-          {CATEGORIES.filter((cat) => {
-            if (categoryTypeFilter === 'conventional') return cat.isConventional;
-            if (categoryTypeFilter === 'thematic') return !cat.isConventional;
-            return true;
-          }).map((cat) => {
-            const count = EMOJIS.filter((e) => e.category === cat.slug).length;
-            const isSelected = selectedCategory === cat.slug;
-            return (
-              <button
-                key={cat.slug}
-                type="button"
-                onClick={() => {
-                  setSelectedCategory(cat.slug);
-                  trackEvent('category_click', { category: cat.slug });
-                }}
-                className={`min-h-[44px] flex items-center gap-1.5 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 cursor-pointer ${
-                  isSelected
-                    ? 'bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 shadow-sm'
-                    : 'bg-white dark:bg-neutral-800/90 text-neutral-700 dark:text-neutral-300 border border-neutral-200/90 dark:border-neutral-700/80 hover:bg-neutral-50 dark:hover:bg-neutral-700'
-                }`}
-              >
-                <span>{cat.icon}</span>
-                <span>{cat.name}</span>
-                <span className="text-[11px] opacity-70 font-normal">({count})</span>
-              </button>
-            );
-          })}
+
+          {/* Scrollable Container with high-contrast visible scrollbar and mouse-wheel support */}
+          <div
+            ref={categoryScrollRef}
+            onWheel={(e) => {
+              if (e.deltaY !== 0 && categoryScrollRef.current) {
+                categoryScrollRef.current.scrollLeft += e.deltaY;
+              }
+            }}
+            className="flex items-center gap-2 overflow-x-auto pb-3 pt-1 px-1 custom-horizontal-scrollbar scroll-smooth flex-1 min-w-0"
+          >
+            <button
+              type="button"
+              onClick={() => {
+                setSelectedCategory('all');
+                trackEvent('category_click', { category: 'all' });
+              }}
+              className={`min-h-[44px] flex items-center gap-1.5 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 cursor-pointer shrink-0 ${
+                selectedCategory === 'all'
+                  ? 'bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 shadow-sm'
+                  : 'bg-white dark:bg-neutral-800/90 text-neutral-700 dark:text-neutral-300 border border-neutral-200/90 dark:border-neutral-700/80 hover:bg-neutral-50 dark:hover:bg-neutral-700'
+              }`}
+            >
+              <span>🌐</span>
+              <span>Universal Emojis ({EMOJIS.length.toLocaleString()})</span>
+            </button>
+            {CATEGORIES.filter((cat) => {
+              if (categoryTypeFilter === 'conventional') return cat.isConventional;
+              if (categoryTypeFilter === 'thematic') return !cat.isConventional;
+              return true;
+            }).map((cat) => {
+              const count = EMOJIS.filter((e) => e.category === cat.slug).length;
+              const isSelected = selectedCategory === cat.slug;
+              return (
+                <button
+                  key={cat.slug}
+                  type="button"
+                  onClick={() => {
+                    setSelectedCategory(cat.slug);
+                    trackEvent('category_click', { category: cat.slug });
+                  }}
+                  className={`min-h-[44px] flex items-center gap-1.5 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 cursor-pointer shrink-0 ${
+                    isSelected
+                      ? 'bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 shadow-sm'
+                      : 'bg-white dark:bg-neutral-800/90 text-neutral-700 dark:text-neutral-300 border border-neutral-200/90 dark:border-neutral-700/80 hover:bg-neutral-50 dark:hover:bg-neutral-700'
+                  }`}
+                >
+                  <span>{cat.icon}</span>
+                  <span>{cat.name}</span>
+                  <span className="text-[11px] opacity-70 font-normal">({count})</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Scroll Right Button */}
+          <button
+            type="button"
+            onClick={() => scrollCategories('right')}
+            className="flex items-center justify-center w-8.5 h-8.5 sm:w-9 sm:h-9 rounded-full bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-600 shadow-md hover:bg-neutral-100 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-100 shrink-0 transition-all hover:scale-105 active:scale-95 cursor-pointer z-10"
+            title="Scroll categories right"
+            aria-label="Scroll categories right"
+          >
+            <ChevronRight className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
+          </button>
         </div>
       </nav>
 
