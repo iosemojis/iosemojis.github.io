@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{title}}</title>
+  <meta name="description" content="{{description}}" />
+  <link rel="canonical" href="{{canonical_url}}" />
+  <meta property="og:title" content="{{title}}" />
+  <meta property="og:description" content="{{description}}" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="{{canonical_url}}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{title}}" />
+  <meta name="twitter:description" content="{{description}}" />
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-P83HHFVH');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9534887202409405" crossorigin="anonymous"></script>
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {{json_ld}}
+  </script>
+
+  <link rel="stylesheet" href="/src/index.css" />
+</head>
+<body class="bg-neutral-50 text-neutral-900 antialiased selection:bg-neutral-900 selection:text-white">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P83HHFVH" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  {{header}}
+
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    {{breadcrumbs}}
+
+    <article class="space-y-8">
+      <header class="text-center py-6 border-b border-neutral-200">
+        <div class="text-7xl md:text-9xl mb-4 select-all flex items-center justify-center p-6 bg-white rounded-2xl shadow-xs border border-neutral-200">
+          <span class="leading-none">{{emoji}}</span>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-neutral-900 mb-3">{{h1}}</h1>
+        <p class="text-lg text-neutral-600 max-w-2xl mx-auto">{{shortMeaning}}</p>
+      </header>
+
+      <!-- Ad slot -->
+      <div class="min-h-[90px] flex items-center justify-center bg-neutral-100/80 rounded-xl p-2 my-6 border border-dashed border-neutral-300" aria-label="Advertisement">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9534887202409405" data-ad-slot="6477240404" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+
+      <!-- Quick Copy & Download Section -->
+      <section class="bg-white rounded-2xl p-6 shadow-xs border border-neutral-200 space-y-6">
+        <h2 class="text-xl font-bold text-neutral-900">Copy {{name}} & Developer Codes</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+          {{copy_buttons}}
+        </div>
+      </section>
+
+      <!-- Platform Notice -->
+      <section class="bg-amber-50/70 border border-amber-200/80 rounded-xl p-4 text-sm text-amber-900">
+        <h3 class="font-semibold text-amber-950 mb-1">Platform-Aware Rendering Notice</h3>
+        <p>Large Unicode emoji display with platform-aware rendering. Emoji appearance varies by operating system (Apple iOS, Google Android, Microsoft Windows, and Samsung One UI) and native font. This site provides informational Unicode reference content and does not redistribute proprietary Apple artwork.</p>
+      </section>
+
+      <!-- Meaning in Texting & Contexts -->
+      <section class="bg-white rounded-2xl p-6 shadow-xs border border-neutral-200 space-y-4">
+        <h2 class="text-2xl font-bold text-neutral-900">What does the {{emoji}} {{name}} mean in a text?</h2>
+        <p class="text-neutral-700 leading-relaxed">{{meanings_texting}}</p>
+
+        <h3 class="text-lg font-semibold text-neutral-900 mt-4">Nuanced Contextual Interpretations</h3>
+        <dl class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-3 bg-neutral-50 rounded-lg border border-neutral-100">
+            <dt class="font-semibold text-neutral-900">General Meaning</dt>
+            <dd class="text-neutral-600 text-sm mt-1">{{meanings_general}}</dd>
+          </div>
+          <div class="p-3 bg-neutral-50 rounded-lg border border-neutral-100">
+            <dt class="font-semibold text-neutral-900">Romantic Messages</dt>
+            <dd class="text-neutral-600 text-sm mt-1">{{meanings_romantic}}</dd>
+          </div>
+          <div class="p-3 bg-neutral-50 rounded-lg border border-neutral-100">
+            <dt class="font-semibold text-neutral-900">Friendship & Chats</dt>
+            <dd class="text-neutral-600 text-sm mt-1">{{meanings_friendship}}</dd>
+          </div>
+          <div class="p-3 bg-neutral-50 rounded-lg border border-neutral-100">
+            <dt class="font-semibold text-neutral-900">Social Media & Captions</dt>
+            <dd class="text-neutral-600 text-sm mt-1">{{meanings_socialMedia}}</dd>
+          </div>
+        </dl>
+      </section>
+
+      <!-- Technical Specifications Table -->
+      <section class="bg-white rounded-2xl p-6 shadow-xs border border-neutral-200 space-y-4">
+        <h2 class="text-xl font-bold text-neutral-900">Technical Specifications & Unicode Data</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm border-collapse">
+            <tbody>
+              <tr class="border-b border-neutral-100"><th class="py-2.5 font-medium text-neutral-500">Character Glyph</th><td class="py-2.5 font-bold text-2xl text-neutral-900">{{emoji}}</td></tr>
+              <tr class="border-b border-neutral-100"><th class="py-2.5 font-medium text-neutral-500">Unicode Code Point(s)</th><td class="py-2.5 font-mono text-neutral-800">{{unicode_points}}</td></tr>
+              <tr class="border-b border-neutral-100"><th class="py-2.5 font-medium text-neutral-500">HTML Entity</th><td class="py-2.5 font-mono text-neutral-800"><code>{{htmlEntity}}</code></td></tr>
+              <tr class="border-b border-neutral-100"><th class="py-2.5 font-medium text-neutral-500">CSS Escape</th><td class="py-2.5 font-mono text-neutral-800"><code>{{cssEscape}}</code></td></tr>
+              <tr class="border-b border-neutral-100"><th class="py-2.5 font-medium text-neutral-500">JavaScript Unicode</th><td class="py-2.5 font-mono text-neutral-800"><code>{{jsEscape}}</code></td></tr>
+              <tr class="border-b border-neutral-100"><th class="py-2.5 font-medium text-neutral-500">URL Encoded</th><td class="py-2.5 font-mono text-neutral-800"><code>{{urlEncoded}}</code></td></tr>
+              <tr><th class="py-2.5 font-medium text-neutral-500">Category</th><td class="py-2.5 text-neutral-800"><a href="/category/{{category_slug}}/" class="text-blue-600 hover:underline">{{category_name}}</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- FAQs -->
+      <section class="bg-white rounded-2xl p-6 shadow-xs border border-neutral-200 space-y-4">
+        <h2 class="text-xl font-bold text-neutral-900">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          {{faqs_html}}
+        </div>
+      </section>
+
+      <!-- Related Searches / Emojis -->
+      <section class="bg-white rounded-2xl p-6 shadow-xs border border-neutral-200 space-y-4">
+        <h2 class="text-xl font-bold text-neutral-900">Related Emojis & Variations</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+          {{related_emojis_html}}
+        </div>
+      </section>
+    </article>
+  </main>
+
+  {{footer}}
+</body>
+</html>

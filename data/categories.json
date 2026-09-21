@@ -1,0 +1,277 @@
+[
+  {
+    "slug": "smileys-emotions",
+    "name": "Smileys & Emotions",
+    "icon": "😀",
+    "isConventional": true,
+    "h1": "Smileys & Emotion Emojis: Meanings, Copy & Codes",
+    "description": "Browse official Unicode smiley and emotion emojis with nuanced texting meanings, facial expressions, and developer copy snippets.",
+    "introCopy": "From classic laughter to ironic melting faces and existential skulls, smiley and emotion emojis form the emotional heartbeat of digital human communication. Discover exact Unicode sequences, psychological nuances across texting contexts, and platform-specific rendering behavior.",
+    "faqs": [
+      {
+        "question": "What is the most popular smiley emoji in the world?",
+        "answer": "Face with Tears of Joy (😂) consistently ranks among the most widely used emojis globally, alongside Rolling on the Floor Laughing (🤣) and Skull (💀)."
+      },
+      {
+        "question": "Why does Gen Z use 💀 instead of 😂?",
+        "answer": "💀 represents 'I'm dead from laughter'—an ironic, dry internet slang evolution that replaced the earnest crying-laughing smiley in many young online communities."
+      }
+    ]
+  },
+  {
+    "slug": "people-body",
+    "name": "People & Body",
+    "icon": "🧑‍🤝‍🧑",
+    "isConventional": true,
+    "h1": "People & Body Emojis: Characters, Roles & Skin Tones",
+    "description": "Explore all people and body emojis, diverse skin tone variations, occupations, fantasy characters, and anatomical symbols with Unicode accuracy.",
+    "introCopy": "Celebrate human diversity and personal expression. From professions and family combinations to multi-tone couples and expressive body language, browse all official Unicode people emojis across all Fitzpatrick skin tones.",
+    "faqs": [
+      {
+        "question": "How do emoji skin tones work in Unicode?",
+        "answer": "The Unicode Standard uses the Fitzpatrick scale (types 1-6) as modifier codepoints (U+1F3FB through U+1F3FF) combined with base characters to render diverse human skin tones."
+      },
+      {
+        "question": "What is a ZWJ sequence in people emojis?",
+        "answer": "A Zero Width Joiner (ZWJ, U+200D) invisible character joins multiple emojis together (like a person + laptop = technologist) into a single combined glyph."
+      }
+    ]
+  },
+  {
+    "slug": "animals-nature",
+    "name": "Animals & Nature",
+    "icon": "🐶",
+    "isConventional": true,
+    "h1": "Animals & Nature Emojis: Wildlife, Pets & Flora",
+    "description": "Explore wildlife, faithful pet companions, and blooming botanical flora with accurate Unicode data and copy-paste utilities.",
+    "introCopy": "Connect with nature through our animal and botanical directory. Discover the cultural poetry of Japanese cherry blossoms (🌸), faithful domestic dog companions (🐶), and wildlife symbols across mobile platforms.",
+    "faqs": [
+      {
+        "question": "Why do sakura blossoms 🌸 have special cultural value?",
+        "answer": "In Japanese tradition, cherry blossoms symbolize the beauty and transient nature of life, celebrated annually during hanami festivals."
+      }
+    ]
+  },
+  {
+    "slug": "food-drinks",
+    "name": "Food & Drinks",
+    "icon": "🍕",
+    "isConventional": true,
+    "h1": "Food & Drink Emojis: Culinary Icons, Coffee & Dining",
+    "description": "Delightful food emojis from steaming morning coffee to artisanal pizza slices. Inspect Unicode code points, HTML entities, and culinary meanings.",
+    "introCopy": "Food connects communities. Whether organizing dinner plans with a hot slice of Pizza (🍕) or kicking off morning productivity with a Hot Beverage (☕), inspect the Unicode specifications and cultural history of dining emojis.",
+    "faqs": [
+      {
+        "question": "Can ☕ be used for both tea and coffee?",
+        "answer": "Yes. Unicode officially catalogs U+2615 as 'Hot Beverage', making it fully appropriate for coffee, tea, espresso, and cocoa."
+      }
+    ]
+  },
+  {
+    "slug": "travel-places",
+    "name": "Travel & Places",
+    "icon": "✈️",
+    "isConventional": true,
+    "h1": "Travel & Places Emojis: Flights, Beaches & Destinations",
+    "description": "Wanderlust travel emojis including commercial airplanes, tropical sandy beaches, and global transit icons with variation selector documentation.",
+    "introCopy": "Embark on global journeys. Learn why Airplane (✈️) requires variation selector U+FE0F to render in full color, discover tropical beach destinations (🏖️), and prepare for your next holiday adventure.",
+    "faqs": [
+      {
+        "question": "Why does ✈️ sometimes show up as a black-and-white icon?",
+        "answer": "Without the emoji presentation selector U+FE0F, some legacy text engines render U+2708 using a monochrome dingbat font."
+      }
+    ]
+  },
+  {
+    "slug": "activities-sports",
+    "name": "Activities & Sports",
+    "icon": "⚽",
+    "isConventional": true,
+    "h1": "Sports & Activities Emojis: Athletics, Trophies & Games",
+    "description": "Athletic and recreational emojis celebrating world football, championship trophies, and creative arts with platform-aware rendering notes.",
+    "introCopy": "Celebrate championships and weekend hobbies. From global association football (⚽) tournament fervor to crowning achievement in gold trophies (🏆), explore activity icons and their Unicode implementation details.",
+    "faqs": [
+      {
+        "question": "What is the official Unicode name of the football emoji ⚽?",
+        "answer": "It is officially cataloged as 'SOCCER BALL' in the Unicode Character Database."
+      }
+    ]
+  },
+  {
+    "slug": "objects-tech",
+    "name": "Objects & Tech",
+    "icon": "💻",
+    "isConventional": true,
+    "h1": "Tech & Object Emojis: Laptops, Smartphones & Tools",
+    "description": "Developer tools, mobile gadgets, and academic books in Unicode. Instant copy-paste for developers and writers.",
+    "introCopy": "Tools that power modern society. From software developer laptops (💻) and touchscreen smartphones (📱) to scholarly book stacks (📚), inspect developer codes and cross-platform hardware rendering differences.",
+    "faqs": [
+      {
+        "question": "Do tech emojis resemble Apple products?",
+        "answer": "Apple designs tech emojis to mirror its MacBooks and iPhones on iOS, while Google and Microsoft use neutral slate designs."
+      }
+    ]
+  },
+  {
+    "slug": "symbols-zodiac",
+    "name": "Symbols & Zodiac",
+    "icon": "💯",
+    "isConventional": true,
+    "h1": "Symbols & Zodiac Emojis: Hundred Points, Punctuation & Badges",
+    "description": "Unicode symbols, mathematical marks, astrological zodiac signs, and authentic perfection badges like Hundred Points (💯).",
+    "introCopy": "Universal signs and cultural markers. Discover the classroom origin of the Hundred Points (💯) badge, zodiac star signs, and verification check marks with exact hex and entity representations.",
+    "faqs": [
+      {
+        "question": "What does the 💯 emoji actually mean?",
+        "answer": "Originating from Japanese 100-point school test grading, it signifies absolute perfection, 100% agreement, or 'keeping it 100 real'."
+      }
+    ]
+  },
+  {
+    "slug": "flags",
+    "name": "Flags",
+    "icon": "🏁",
+    "isConventional": true,
+    "h1": "Flag Emojis: Countries, Territories & Regional Ensigns",
+    "description": "Complete directory of world flag emojis, national banners, and regional symbols with ISO 3166-1 alpha-2 regional indicator sequences.",
+    "introCopy": "Display national pride and global solidarity. National flag emojis are formed in Unicode using pairs of 26 Regional Indicator Symbols (U+1F1E6 to U+1F1FF) corresponding to two-letter ISO country codes.",
+    "faqs": [
+      {
+        "question": "How are country flag emojis created in Unicode?",
+        "answer": "Each flag is composed of two Regional Indicator Symbol letters corresponding to its ISO 3166-1 alpha-2 country code (for example, 🇺 + 🇸 = 🇺🇸 United States)."
+      },
+      {
+        "question": "Why do some flag emojis not display on Windows?",
+        "answer": "Microsoft Windows does not include color artwork for national flag emojis, rendering them as two-letter country code boxes instead."
+      }
+    ]
+  },
+  {
+    "slug": "festivals-holidays",
+    "name": "Festivals & Holidays",
+    "icon": "🎉",
+    "isConventional": false,
+    "h1": "Festival, Holiday & Celebration Emojis: Meanings & Codes",
+    "description": "Unicode festive emojis for Diwali, Christmas, New Year, Eid, and seasonal celebrations with cultural meanings and instant copy buttons.",
+    "introCopy": "Celebrations unite humanity across cultures. From the sacred Diwali Diya Lamp (🪔) and festive Christmas trees (🎄) to New Year party poppers (🎉), explore the precise Unicode codes and cultural traditions behind holiday emojis.",
+    "faqs": [
+      {
+        "question": "Which emoji is used for Diwali celebrations?",
+        "answer": "The Diya Lamp (🪔) is the official Unicode emoji representing the traditional clay oil lamp lit during Diwali and Deepavali celebrations."
+      },
+      {
+        "question": "Are there dedicated pages for popular world festivals?",
+        "answer": "Yes! Browse our comprehensive World Festivals directory for curated emojis, festive wishes, and cultural etiquette for Diwali, Christmas, Eid, Halloween, Lunar New Year, and more."
+      }
+    ]
+  },
+  {
+    "slug": "hearts-love",
+    "name": "Hearts & Love",
+    "icon": "❤️",
+    "isConventional": false,
+    "h1": "Heart Emojis & Love Symbols: Color Meanings & Codes",
+    "description": "Explore all heart emoji colors and love symbols. Learn what each heart color means in texting, friendship, and romance, plus developer codes.",
+    "introCopy": "Every heart emoji color carries a distinct emotional code in modern texting etiquette. While ❤️ signifies timeless passion and romantic fidelity, 🩷 conveys soft affection, 🤍 expresses respectful condolences or pure sincerity, and 🖤 represents alternative aesthetics or dark humor.",
+    "faqs": [
+      {
+        "question": "What do the different heart emoji colors mean?",
+        "answer": "Red represents passionate romantic love; pink conveys sweet tenderness; white symbolizes pure condolences and sincerity; black expresses gothic style or sorrow; and heart-on-fire represents intense passion."
+      },
+      {
+        "question": "Which heart should I send to a casual friend?",
+        "answer": "Pink (🩷), yellow (💛), two hearts (💕), or sparkling heart (💖) are traditionally preferred for close friendship without accidental romantic implications."
+      }
+    ]
+  },
+  {
+    "slug": "hands-gestures",
+    "name": "Hands & Gestures",
+    "icon": "🫶",
+    "isConventional": false,
+    "h1": "Hand Gesture Emojis: Meanings, Body Language & Codes",
+    "description": "Decode human hand signs, finger hearts, applause, Italian pinched fingers, and thumbs-up emojis with cultural context and developer copy tools.",
+    "introCopy": "Human hand gestures transcend language barriers. From pop concert Heart Hands (🫶) and the iconic Italian Pinched Fingers (🤌) to workplace Thumbs Up (👍) etiquette, discover how body language translates into digital Unicode glyphs.",
+    "faqs": [
+      {
+        "question": "What is the meaning of 🫶 Heart Hands?",
+        "answer": "Heart Hands depicts two hands forming an open heart shape, representing warm appreciation, fan community love, and active human gratitude."
+      }
+    ]
+  },
+  {
+    "slug": "weather-sky",
+    "name": "Weather & Sky",
+    "icon": "☀️",
+    "isConventional": false,
+    "h1": "Weather & Sky Emojis: Sun, Clouds, Rain, Stars & Celestial",
+    "description": "Complete collection of meteorological and astronomical emojis. Copy sun, rain, storm, snowflakes, rainbow, and moon phases in 1 click.",
+    "introCopy": "Track seasons, meteorology, and the cosmos. From radiant golden suns (☀️) and gentle rainfall (🌧️) to glowing crescent moons (🌙) and vibrant rainbows (🌈), explore weather symbols across iOS and Android.",
+    "faqs": [
+      {
+        "question": "Why does the sun emoji ☀️ have a variation selector?",
+        "answer": "The base character U+2600 is an ancient black-and-white astronomical symbol. With variation selector U+FE0F, modern systems render it as a vibrant yellow emoji."
+      }
+    ]
+  },
+  {
+    "slug": "celebrations-party",
+    "name": "Celebrations & Party",
+    "icon": "🎆",
+    "isConventional": false,
+    "h1": "Party & Celebration Emojis: Fireworks, Confetti & Cheers",
+    "description": "Sparkling celebration emojis for birthdays, anniversaries, graduations, and victories. Instant copy for fireworks, balloons, and champagne toasts.",
+    "introCopy": "Turn every digital message into a party. Whether celebrating a major career milestone, a birthday milestone, or ringing in midnight with clinking champagne flutes (🥂), find all celebration emojis in one place.",
+    "faqs": [
+      {
+        "question": "What is the best emoji combo for a birthday wish?",
+        "answer": "Popular birthday combinations include 🎂🎉🥳 (Cake + Party Popper + Partying Face) or 🎈🎁✨ (Balloon + Gift + Sparkles)."
+      }
+    ]
+  },
+  {
+    "slug": "religion-spirituality",
+    "name": "Faith & Spirituality",
+    "icon": "🕉️",
+    "isConventional": false,
+    "h1": "Religious & Spiritual Emojis: Sacred Symbols & Faith",
+    "description": "Explore sacred religious symbols, meditation icons, and spiritual prayer gestures across global faiths with Unicode accuracy and reverence.",
+    "introCopy": "The Unicode Standard catalogs sacred symbols representing global faiths and spiritual traditions with meticulous respect. Explore the ancient Om (🕉️), Latin Cross (✝️), Star of David (✡️), Crescent and Star (☪️), Menorah (🕎), and places of worship.",
+    "faqs": [
+      {
+        "question": "Are major global faiths represented in Unicode?",
+        "answer": "Yes. Unicode includes symbols for Hinduism, Christianity, Islam, Judaism, Buddhism, Sikhism, Shinto, and general places of worship."
+      }
+    ]
+  },
+  {
+    "slug": "work-office",
+    "name": "Work & Office",
+    "icon": "💼",
+    "isConventional": false,
+    "h1": "Work, Office & Study Emojis: Business, Stationery & Tech",
+    "description": "Professional emojis for work communications, Slack status, email signatures, and study sessions. Copy briefcase, calendar, and laptops in 1 click.",
+    "introCopy": "Enhance workplace chat and email clarity. From classic Briefcases (💼) and Tear-Off Calendars (📅) to Paperclips (📎) and modern laptops, discover professional symbols designed for modern business workflows.",
+    "faqs": [
+      {
+        "question": "Which emojis are best for professional Slack and Teams statuses?",
+        "answer": "Calendar (📅) for in meetings, Laptop (💻) for focused coding/deep work, Briefcase (💼) for in office, and Coffee (☕) for on break."
+      }
+    ]
+  },
+  {
+    "slug": "viral-emojis",
+    "name": "Viral & Trending",
+    "icon": "🔥",
+    "isConventional": false,
+    "h1": "Viral Emojis: Trending Internet Slang, Salutes & Sparkles",
+    "description": "Discover trending emojis taking over TikTok, X, and Instagram comments—from Saluting Face (🫡) and Sparkles (✨) to Fire (🔥) and Skull (💀).",
+    "introCopy": "Internet culture moves at lightning speed. Stay ahead of viral trends with deep dives into the Saluting Face (🫡), the rhetorical sparkles ✨emphasis✨, and high-energy flame emojis dominating social feeds.",
+    "faqs": [
+      {
+        "question": "What makes an emoji go viral?",
+        "answer": "Viral emojis typically fill a unique conversational void—expressing complex emotional states like ironic respect, overwhelming hype, or dry humor."
+      }
+    ]
+  }
+]

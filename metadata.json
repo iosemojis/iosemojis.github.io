@@ -1,0 +1,8 @@
+{
+  "name": "Remix iOS Emoji \u0026 iPhone Emoji Keyboard",
+  "description": "Copy \u0026 paste authentic iPhone emoji, Apple emoji, and emoji for iOS with 1 click. Complete directory of emojis on Apple, send emoji to iPhone, and download emot iPhone for Android.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

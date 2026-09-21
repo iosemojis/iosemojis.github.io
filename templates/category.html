@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{title}}</title>
+  <meta name="description" content="{{description}}" />
+  <link rel="canonical" href="{{canonical_url}}" />
+  <meta property="og:title" content="{{title}}" />
+  <meta property="og:description" content="{{description}}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{canonical_url}}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{title}}" />
+  <meta name="twitter:description" content="{{description}}" />
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-P83HHFVH');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9534887202409405" crossorigin="anonymous"></script>
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {{json_ld}}
+  </script>
+
+  <link rel="stylesheet" href="/src/index.css" />
+</head>
+<body class="bg-neutral-50 text-neutral-900 antialiased selection:bg-neutral-900 selection:text-white">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P83HHFVH" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  {{header}}
+
+  <main class="max-w-5xl mx-auto px-4 py-8">
+    {{breadcrumbs}}
+
+    <header class="mb-8">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-4xl p-2 bg-white rounded-xl shadow-xs border border-neutral-200">{{icon}}</span>
+        <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-neutral-900">{{h1}}</h1>
+      </div>
+      <p class="text-lg text-neutral-600 max-w-3xl leading-relaxed mt-3">{{introCopy}}</p>
+    </header>
+
+    <!-- Ad Slot -->
+    <div class="min-h-[90px] flex items-center justify-center bg-neutral-100/80 rounded-xl p-2 my-6 border border-dashed border-neutral-300" aria-label="Advertisement">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9534887202409405" data-ad-slot="6477240404" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- Emoji Grid -->
+    <section class="mb-12">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-2xl font-bold text-neutral-900">All {{name}} Emojis</h2>
+        <span class="text-sm text-neutral-500">{{emoji_count}} symbols</span>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+        {{emoji_grid_html}}
+      </div>
+    </section>
+
+    <!-- FAQs -->
+    <section class="bg-white rounded-2xl p-6 shadow-xs border border-neutral-200 mb-8 space-y-4">
+      <h2 class="text-xl font-bold text-neutral-900">{{name}} FAQs</h2>
+      <div class="space-y-4">
+        {{faqs_html}}
+      </div>
+    </section>
+
+    <!-- Related Categories -->
+    <section class="bg-white rounded-2xl p-6 shadow-xs border border-neutral-200 space-y-4">
+      <h2 class="text-xl font-bold text-neutral-900">Explore Other Emoji Categories</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+        {{related_categories_html}}
+      </div>
+    </section>
+  </main>
+
+  {{footer}}
+</body>
+</html>
