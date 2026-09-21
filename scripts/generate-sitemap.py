@@ -62,6 +62,20 @@ def generate_sitemap():
             "priority": "0.9"
         })
 
+    # 1c. International Geo-Targeted Hubs
+    urls.append({
+        "loc": f"{BASE_URL}/emot-iphone/",
+        "lastmod": today,
+        "changefreq": "weekly",
+        "priority": "0.95"
+    })
+    urls.append({
+        "loc": f"{BASE_URL}/emojis-iphone-copiar/",
+        "lastmod": today,
+        "changefreq": "weekly",
+        "priority": "0.95"
+    })
+
     # 2. Categories
     for cat in categories:
         urls.append({

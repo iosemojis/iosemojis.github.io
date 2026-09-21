@@ -17,7 +17,37 @@
   <link rel="canonical" href="https://iosemojis.github.io/terms/" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍎</text></svg>" />
   <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍎</text></svg>" />
-  <link rel="stylesheet" href="/assets/index-DlYqaCrQ.css" />
+  <link rel="stylesheet" href="/assets/app.css" />
+  <style>
+    :root {
+      --emoji-font: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Android Emoji", "Segoe UI Symbol", "Twemoji Mozilla", emoji, sans-serif;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, var(--emoji-font);
+    }
+    .custom-horizontal-scrollbar {
+      scrollbar-width: thin !important;
+      scrollbar-color: #cbd5e1 transparent !important;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      overflow-x: auto !important;
+    }
+    .custom-horizontal-scrollbar::-webkit-scrollbar {
+      height: 6px !important;
+      display: block !important;
+    }
+    .custom-horizontal-scrollbar::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.05) !important;
+      border-radius: 9999px !important;
+    }
+    .custom-horizontal-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1 !important;
+      border-radius: 9999px !important;
+    }
+    .custom-horizontal-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8 !important;
+    }
+  </style>
 </head>
 <body class="bg-neutral-50 text-neutral-900 antialiased min-h-screen flex flex-col justify-between">
   

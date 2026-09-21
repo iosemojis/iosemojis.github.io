@@ -320,17 +320,42 @@ def generate_pages():
 
         json_ld_data = {
             "@context": "https://schema.org",
-            "@type": "CollectionPage",
-            "name": cat["name"],
-            "description": cat["description"],
-            "url": canonical_url,
-            "breadcrumb": {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{BASE_URL}/"},
-                    {"@type": "ListItem", "position": 2, "name": cat["name"], "item": canonical_url}
-                ]
-            }
+            "@graph": [
+                {
+                    "@type": "CollectionPage",
+                    "name": f"{cat['name']} iPhone Emojis — Copy, Meanings & Codes",
+                    "description": cat["description"],
+                    "url": canonical_url,
+                    "breadcrumb": {
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{BASE_URL}/"},
+                            {"@type": "ListItem", "position": 2, "name": cat["name"], "item": canonical_url}
+                        ]
+                    }
+                },
+                {
+                    "@type": "FAQPage",
+                    "mainEntity": [
+                        {
+                            "@type": "Question",
+                            "name": f"How do I copy {cat['name']} emojis for iPhone?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": f"Click any {cat['name']} emoji on this page to copy it to your clipboard. You can paste it immediately into WhatsApp, Instagram, iMessage, TikTok, or Twitter/X."
+                            }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": f"Do these {cat['name']} emojis look like Apple iOS emojis on Android and Windows?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "When you paste these Unicode characters, they render using Apple's font on iPhones/iPads/Macs, and the native device emoji font on Android or Windows. When sent to an iPhone user, they always appear as authentic Apple emojis."
+                            }
+                        }
+                    ]
+                }
+            ]
         }
         json_ld = json.dumps(json_ld_data, indent=2, ensure_ascii=False)
 
@@ -414,19 +439,30 @@ def generate_pages():
 
         json_ld_data = {
             "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": guide["h1"],
-            "description": guide["description"],
-            "datePublished": guide["publishedDate"],
-            "author": {"@type": "Organization", "name": guide["author"]},
-            "url": canonical_url,
-            "breadcrumb": {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{BASE_URL}/"},
-                    {"@type": "ListItem", "position": 2, "name": "Guides", "item": f"{BASE_URL}/guides/{g_slug}/"}
-                ]
-            }
+            "@graph": [
+                {
+                    "@type": "Article",
+                    "headline": guide["h1"],
+                    "description": guide["description"],
+                    "datePublished": guide["publishedDate"],
+                    "author": {"@type": "Organization", "name": guide["author"]},
+                    "url": canonical_url,
+                    "breadcrumb": {
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{BASE_URL}/"},
+                            {"@type": "ListItem", "position": 2, "name": "Guides", "item": f"{BASE_URL}/guides/{g_slug}/"}
+                        ]
+                    }
+                },
+                {
+                    "@type": "FAQPage",
+                    "mainEntity": [
+                        {"@type": "Question", "name": f["question"], "acceptedAnswer": {"@type": "Answer", "text": f["answer"]}}
+                        for f in guide.get("faqs", [])
+                    ]
+                }
+            ]
         }
         json_ld = json.dumps(json_ld_data, indent=2, ensure_ascii=False)
 
@@ -619,7 +655,37 @@ def generate_pages():
   <link rel="canonical" href="{canonical_url}" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍎</text></svg>" />
   <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍎</text></svg>" />
-  <link rel="stylesheet" href="/assets/index-DlYqaCrQ.css" />
+  <link rel="stylesheet" href="/assets/app.css" />
+  <style>
+    :root {{
+      --emoji-font: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Android Emoji", "Segoe UI Symbol", "Twemoji Mozilla", emoji, sans-serif;
+    }}
+    body {{
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, var(--emoji-font);
+    }}
+    .custom-horizontal-scrollbar {{
+      scrollbar-width: thin !important;
+      scrollbar-color: #cbd5e1 transparent !important;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      overflow-x: auto !important;
+    }}
+    .custom-horizontal-scrollbar::-webkit-scrollbar {{
+      height: 6px !important;
+      display: block !important;
+    }}
+    .custom-horizontal-scrollbar::-webkit-scrollbar-track {{
+      background: rgba(0, 0, 0, 0.05) !important;
+      border-radius: 9999px !important;
+    }}
+    .custom-horizontal-scrollbar::-webkit-scrollbar-thumb {{
+      background: #cbd5e1 !important;
+      border-radius: 9999px !important;
+    }}
+    .custom-horizontal-scrollbar::-webkit-scrollbar-thumb:hover {{
+      background: #94a3b8 !important;
+    }}
+  </style>
 </head>
 <body class="bg-neutral-50 text-neutral-900 antialiased min-h-screen flex flex-col justify-between">
   {header_html}
@@ -635,11 +701,446 @@ def generate_pages():
         with open(os.path.join(out_dir, "index.html"), "w", encoding="utf-8") as f:
             f.write(html_content)
 
+    # 6. Generate International Geo-SEO Landing Pages
+    print("Generating international Geo-SEO landing pages (/emot-iphone/ & /emojis-iphone-copiar/)...")
+    generate_geo_pages(emojis, categories, header_html, footer_html)
+
     print("Triggering sitemap and robots generation...")
     import subprocess
     import sys
     subprocess.run([sys.executable, os.path.join(ROOT_DIR, "scripts", "generate-sitemap.py")], check=True)
     print("✅ All static pages generated successfully!")
 
+def generate_geo_pages(emojis, categories, header_html, footer_html):
+    top_emojis = emojis[:120]
+
+    # --- 1. Indonesian Hub: /emot-iphone/ ---
+    id_dir = os.path.join(PUBLIC_DIR, "emot-iphone")
+    os.makedirs(id_dir, exist_ok=True)
+    id_canonical = f"{BASE_URL}/emot-iphone/"
+    id_title = "Salin Emot iPhone — Kumpulan Emoticon Apple iOS untuk WA, IG & Android"
+    id_desc = "Salin dan tempel emot iPhone asli (Apple emoji) dalam 1 klik. Koleksi lengkap emotikon iOS terbaru untuk WhatsApp, Instagram, TikTok & HP Android gratis."
+
+    id_cards = []
+    for emo in top_emojis:
+        id_cards.append(f"""
+        <button onclick="navigator.clipboard.writeText('{emo['emoji']}'); showGeoToast('Emot {emo['emoji']} berhasil disalin!');" class="p-3 bg-white hover:bg-neutral-100 rounded-xl border border-neutral-200 hover:border-neutral-400 transition-all flex flex-col items-center justify-center gap-1 group shadow-2xs cursor-pointer active:scale-95">
+          <span class="text-3xl select-all">{emo['emoji']}</span>
+          <span class="text-[10px] text-neutral-500 font-medium truncate w-full text-center group-hover:text-neutral-900">{emo['name']}</span>
+        </button>
+        """)
+    id_grid_html = "\n".join(id_cards)
+
+    id_json_ld = json.dumps({
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebPage",
+                "@id": id_canonical,
+                "url": id_canonical,
+                "name": id_title,
+                "description": id_desc,
+                "inLanguage": "id",
+                "breadcrumb": {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {"@type": "ListItem", "position": 1, "name": "Beranda", "item": f"{BASE_URL}/"},
+                        {"@type": "ListItem", "position": 2, "name": "Salin Emot iPhone", "item": id_canonical}
+                    ]
+                }
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Bagaimana cara menyalin emot iPhone ke HP Android?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Cukup klik atau sentuh emotikon Apple mana saja di halaman ini, maka emotikon akan langsung tersalin ke clipboard Anda. Buka WhatsApp atau Instagram, lalu tekan lama kolom chat dan pilih Tempel (Paste)."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Apakah emot iPhone bisa muncul di WhatsApp?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Ya, WhatsApp secara default menggunakan set emotikon berdesain Apple iOS pada aplikasi Android dan Web. Jadi emotikon yang Anda salin dari sini akan terlihat persis seperti emoji di iPhone."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Mengapa emotikon di iPhone terlihat berbeda dengan Android?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Setiap vendor sistem operasi (Apple, Google, Samsung) memiliki font gaya grafis sendiri untuk karakter Unicode yang sama. Apple mendesain emotikon dengan gaya 3D realistis dan ekspresi yang khas."
+                        }
+                    }
+                ]
+            }
+        ]
+    }, indent=2, ensure_ascii=False)
+
+    id_html = f"""<!doctype html>
+<html lang="id">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JL0C3QP4F5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){{dataLayer.push(arguments);}}
+    gtag('js', new Date());
+    gtag('config', 'G-JL0C3QP4F5');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{id_title}</title>
+  <meta name="description" content="{id_desc}" />
+  <link rel="canonical" href="{id_canonical}" />
+  <link rel="alternate" hreflang="id" href="{id_canonical}" />
+  <link rel="alternate" hreflang="x-default" href="{BASE_URL}/" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍎</text></svg>" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍎</text></svg>" />
+  <meta property="og:title" content="{id_title}" />
+  <meta property="og:description" content="{id_desc}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{id_canonical}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="/assets/app.css" />
+  <style>
+    :root {{
+      --emoji-font: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Android Emoji", "Segoe UI Symbol", "Twemoji Mozilla", emoji, sans-serif;
+    }}
+    body {{
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, var(--emoji-font);
+    }}
+    .custom-horizontal-scrollbar {{
+      scrollbar-width: thin !important;
+      scrollbar-color: #cbd5e1 transparent !important;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      overflow-x: auto !important;
+    }}
+    .custom-horizontal-scrollbar::-webkit-scrollbar {{
+      height: 6px !important;
+      display: block !important;
+    }}
+    .custom-horizontal-scrollbar::-webkit-scrollbar-track {{
+      background: rgba(0, 0, 0, 0.05) !important;
+      border-radius: 9999px !important;
+    }}
+    .custom-horizontal-scrollbar::-webkit-scrollbar-thumb {{
+      background: #cbd5e1 !important;
+      border-radius: 9999px !important;
+    }}
+  </style>
+  <script type="application/ld+json">
+  {id_json_ld}
+  </script>
+</head>
+<body class="bg-neutral-50 text-neutral-900 antialiased min-h-screen flex flex-col justify-between">
+  {header_html}
+
+  <main class="max-w-5xl mx-auto px-4 py-10 w-full space-y-10">
+    <div class="text-center space-y-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-neutral-200/60 rounded-full text-xs font-semibold text-neutral-700 mb-2">
+        <span>🇮🇩</span> Salin Emoticon Apple iOS Gratis
+      </div>
+      <h1 class="text-3xl md:text-5xl font-black tracking-tight text-neutral-900">
+        Salin Emot iPhone Online
+      </h1>
+      <p class="text-neutral-600 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+        Klik langsung pada emotikon di bawah untuk menyalin ke clipboard. Paste ke chat WhatsApp, caption Instagram, TikTok, Twitter/X, atau bio sosial mediamu!
+      </p>
+    </div>
+
+    <!-- Live Toast -->
+    <div id="geo-toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-neutral-900 text-white px-5 py-3 rounded-xl shadow-xl font-medium text-sm flex items-center gap-2 pointer-events-none">
+      <span>✓</span> <span id="geo-toast-msg">Tersalin!</span>
+    </div>
+
+    <!-- Quick Copy Grid -->
+    <div class="bg-white p-6 rounded-2xl border border-neutral-200 shadow-xs">
+      <div class="flex items-center justify-between mb-4 pb-3 border-b border-neutral-100">
+        <h2 class="font-bold text-neutral-800 text-base">🔥 Emot iPhone Paling Populer</h2>
+        <span class="text-xs text-neutral-400">Sentuh untuk salin</span>
+      </div>
+      <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2">
+        {id_grid_html}
+      </div>
+    </div>
+
+    <!-- Content Sections for SEO -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-white p-6 rounded-2xl border border-neutral-200 shadow-xs space-y-3">
+        <h3 class="font-bold text-lg text-neutral-900">📱 Cara Pakai Emot iPhone di HP Android</h3>
+        <p class="text-neutral-600 text-sm leading-relaxed">
+          Banyak pengguna Android menyukai gaya emotikon iPhone karena tampilannya yang lebih ekspresif dan mengkilap (glossy). Dengan menyalin emot dari halaman ini, kamu tidak perlu menginstall aplikasi font pihak ketiga yang berbahaya atau me-root ponsel. Cukup klik emotikon yang kamu suka, lalu tempelkan (paste) langsung ke kolom chat WhatsApp atau status.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl border border-neutral-200 shadow-xs space-y-3">
+        <h3 class="font-bold text-lg text-neutral-900">✨ Trik Emot iPhone untuk Bio Instagram & WA</h3>
+        <p class="text-neutral-600 text-sm leading-relaxed">
+          Agar profil media sosialmu terlihat lebih estetik, padukan emotikon hati (heart), kilauan (sparkles), dan ekspresi senyum dengan teks tebal atau font estetik. Kamu juga dapat mengunjungi koleksi lengkap kami di <a href="/category/hearts-love/" class="text-blue-600 font-semibold hover:underline">Kategori Hearts & Love</a> atau <a href="https://emojisymbols.netlify.app/" target="_blank" rel="noopener" class="text-blue-600 font-semibold hover:underline">Emoji Symbols Generator</a>.
+        </p>
+      </div>
+    </div>
+
+    <!-- FAQs Section -->
+    <div class="bg-white p-6 rounded-2xl border border-neutral-200 shadow-xs space-y-4">
+      <h3 class="font-bold text-xl text-neutral-900 mb-2">❓ Tanya Jawab Seputar Emot iPhone</h3>
+      <details class="group p-4 bg-neutral-50 rounded-xl border border-neutral-200">
+        <summary class="font-semibold text-neutral-900 cursor-pointer list-none flex justify-between items-center">
+          <span>Bagaimana cara menyalin emot iPhone ke HP Android?</span>
+          <span class="transition-transform group-open:rotate-180">▾</span>
+        </summary>
+        <p class="mt-3 text-neutral-600 text-sm leading-relaxed">Cukup klik atau sentuh emotikon Apple mana saja di halaman ini, maka emotikon akan langsung tersalin ke clipboard Anda. Buka WhatsApp atau Instagram, lalu tekan lama kolom chat dan pilih Tempel (Paste).</p>
+      </details>
+      <details class="group p-4 bg-neutral-50 rounded-xl border border-neutral-200">
+        <summary class="font-semibold text-neutral-900 cursor-pointer list-none flex justify-between items-center">
+          <span>Apakah emot iPhone bisa muncul di WhatsApp?</span>
+          <span class="transition-transform group-open:rotate-180">▾</span>
+        </summary>
+        <p class="mt-3 text-neutral-600 text-sm leading-relaxed">Ya, WhatsApp secara default menggunakan set emotikon berdesain Apple iOS pada aplikasi Android dan Web. Jadi emotikon yang Anda salin dari sini akan terlihat persis seperti emoji di iPhone.</p>
+      </details>
+      <details class="group p-4 bg-neutral-50 rounded-xl border border-neutral-200">
+        <summary class="font-semibold text-neutral-900 cursor-pointer list-none flex justify-between items-center">
+          <span>Mengapa emotikon di iPhone terlihat berbeda dengan Android?</span>
+          <span class="transition-transform group-open:rotate-180">▾</span>
+        </summary>
+        <p class="mt-3 text-neutral-600 text-sm leading-relaxed">Setiap vendor sistem operasi (Apple, Google, Samsung) memiliki font gaya grafis sendiri untuk karakter Unicode yang sama. Apple mendesain emotikon dengan gaya 3D realistis dan ekspresi yang khas.</p>
+      </details>
+    </div>
+  </main>
+
+  <script>
+    function showGeoToast(msg) {{
+      var toast = document.getElementById('geo-toast');
+      var toastMsg = document.getElementById('geo-toast-msg');
+      toastMsg.innerText = msg;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(function() {{
+        toast.classList.add('translate-y-20', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }}, 2000);
+    }}
+  </script>
+
+  {footer_html}
+</body>
+</html>
+"""
+    with open(os.path.join(id_dir, "index.html"), "w", encoding="utf-8") as f:
+        f.write(id_html)
+
+    # --- 2. Spanish Hub: /emojis-iphone-copiar/ ---
+    es_dir = os.path.join(PUBLIC_DIR, "emojis-iphone-copiar")
+    os.makedirs(es_dir, exist_ok=True)
+    es_canonical = f"{BASE_URL}/emojis-iphone-copiar/"
+    es_title = "Emojis de iPhone para Copiar y Pegar — Apple Emojis para WhatsApp y Android"
+    es_desc = "Copia y pega emojis de iPhone originales con 1 clic. Colección completa de emoticones de Apple iOS para WhatsApp, Instagram, TikTok y teléfonos Android."
+
+    es_cards = []
+    for emo in top_emojis:
+        es_cards.append(f"""
+        <button onclick="navigator.clipboard.writeText('{emo['emoji']}'); showGeoToast('¡Emoji {emo['emoji']} copiado!');" class="p-3 bg-white hover:bg-neutral-100 rounded-xl border border-neutral-200 hover:border-neutral-400 transition-all flex flex-col items-center justify-center gap-1 group shadow-2xs cursor-pointer active:scale-95">
+          <span class="text-3xl select-all">{emo['emoji']}</span>
+          <span class="text-[10px] text-neutral-500 font-medium truncate w-full text-center group-hover:text-neutral-900">{emo['name']}</span>
+        </button>
+        """)
+    es_grid_html = "\n".join(es_cards)
+
+    es_json_ld = json.dumps({
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebPage",
+                "@id": es_canonical,
+                "url": es_canonical,
+                "name": es_title,
+                "description": es_desc,
+                "inLanguage": "es",
+                "breadcrumb": {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {"@type": "ListItem", "position": 1, "name": "Inicio", "item": f"{BASE_URL}/"},
+                        {"@type": "ListItem", "position": 2, "name": "Emojis iPhone Copiar", "item": es_canonical}
+                    ]
+                }
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "¿Cómo copiar emojis de iPhone en Android?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Toca o haz clic en cualquier emoji de Apple de esta página y se copiará automáticamente en tu portapapeles. Luego abre WhatsApp o Instagram y selecciona Pegar."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "¿Por qué los emojis de iPhone se ven diferentes en WhatsApp?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "WhatsApp utiliza el conjunto oficial de emojis con diseño similar al de Apple en todas sus plataformas. Por lo tanto, cualquier emoji que copies aquí se verá idéntico al de un iPhone en tus conversaciones."
+                        }
+                    }
+                ]
+            }
+        ]
+    }, indent=2, ensure_ascii=False)
+
+    es_html = f"""<!doctype html>
+<html lang="es">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JL0C3QP4F5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){{dataLayer.push(arguments);}}
+    gtag('js', new Date());
+    gtag('config', 'G-JL0C3QP4F5');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{es_title}</title>
+  <meta name="description" content="{es_desc}" />
+  <link rel="canonical" href="{es_canonical}" />
+  <link rel="alternate" hreflang="es" href="{es_canonical}" />
+  <link rel="alternate" hreflang="x-default" href="{BASE_URL}/" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍎</text></svg>" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍎</text></svg>" />
+  <meta property="og:title" content="{es_title}" />
+  <meta property="og:description" content="{es_desc}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{es_canonical}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="/assets/app.css" />
+  <style>
+    :root {{
+      --emoji-font: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Android Emoji", "Segoe UI Symbol", "Twemoji Mozilla", emoji, sans-serif;
+    }}
+    body {{
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, var(--emoji-font);
+    }}
+    .custom-horizontal-scrollbar {{
+      scrollbar-width: thin !important;
+      scrollbar-color: #cbd5e1 transparent !important;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      overflow-x: auto !important;
+    }}
+    .custom-horizontal-scrollbar::-webkit-scrollbar {{
+      height: 6px !important;
+      display: block !important;
+    }}
+    .custom-horizontal-scrollbar::-webkit-scrollbar-track {{
+      background: rgba(0, 0, 0, 0.05) !important;
+      border-radius: 9999px !important;
+    }}
+    .custom-horizontal-scrollbar::-webkit-scrollbar-thumb {{
+      background: #cbd5e1 !important;
+      border-radius: 9999px !important;
+    }}
+  </style>
+  <script type="application/ld+json">
+  {es_json_ld}
+  </script>
+</head>
+<body class="bg-neutral-50 text-neutral-900 antialiased min-h-screen flex flex-col justify-between">
+  {header_html}
+
+  <main class="max-w-5xl mx-auto px-4 py-10 w-full space-y-10">
+    <div class="text-center space-y-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-neutral-200/60 rounded-full text-xs font-semibold text-neutral-700 mb-2">
+        <span>🇪🇸</span> Emoticones de Apple iOS para Copiar
+      </div>
+      <h1 class="text-3xl md:text-5xl font-black tracking-tight text-neutral-900">
+        Emojis de iPhone para Copiar y Pegar
+      </h1>
+      <p class="text-neutral-600 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+        Haz clic en cualquier emoji para copiarlo al portapapeles al instante. Pégalo en WhatsApp, Instagram, TikTok, Facebook o tus estados.
+      </p>
+    </div>
+
+    <!-- Live Toast -->
+    <div id="geo-toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-neutral-900 text-white px-5 py-3 rounded-xl shadow-xl font-medium text-sm flex items-center gap-2 pointer-events-none">
+      <span>✓</span> <span id="geo-toast-msg">¡Copiado!</span>
+    </div>
+
+    <!-- Quick Copy Grid -->
+    <div class="bg-white p-6 rounded-2xl border border-neutral-200 shadow-xs">
+      <div class="flex items-center justify-between mb-4 pb-3 border-b border-neutral-100">
+        <h2 class="font-bold text-neutral-800 text-base">🔥 Emojis de iPhone Más Populares</h2>
+        <span class="text-xs text-neutral-400">Toca para copiar</span>
+      </div>
+      <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2">
+        {es_grid_html}
+      </div>
+    </div>
+
+    <!-- Content Sections for SEO -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="bg-white p-6 rounded-2xl border border-neutral-200 shadow-xs space-y-3">
+        <h3 class="font-bold text-lg text-neutral-900">📲 Cómo Usar Emojis de iOS en Cualquier Celular</h3>
+        <p class="text-neutral-600 text-sm leading-relaxed">
+          Los emojis de Apple son mundialmente reconocidos por su diseño detallado y tridimensional. Con este teclado web en línea, puedes copiar cualquier símbolo y utilizarlo sin necesidad de cambiar de celular o instalar teclados externos. Al enviarlo a usuarios de iPhone o iPad, se reproducirá exactamente con el diseño nativo de iOS.
+        </p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl border border-neutral-200 shadow-xs space-y-3">
+        <h3 class="font-bold text-lg text-neutral-900">✨ Colecciones y Símbolos Especiales</h3>
+        <p class="text-neutral-600 text-sm leading-relaxed">
+          Explora también nuestras categorías completas de <a href="/category/hearts-love/" class="text-blue-600 font-semibold hover:underline">Corazones y Amor</a>, <a href="/category/smileys-emotions/" class="text-blue-600 font-semibold hover:underline">Caras y Emociones</a> o genera letras bonitas con <a href="https://emojisymbols.netlify.app/" target="_blank" rel="noopener" class="text-blue-600 font-semibold hover:underline">Emoji Symbols Generator</a>.
+        </p>
+      </div>
+    </div>
+
+    <!-- FAQs Section -->
+    <div class="bg-white p-6 rounded-2xl border border-neutral-200 shadow-xs space-y-4">
+      <h3 class="font-bold text-xl text-neutral-900 mb-2">❓ Preguntas Frecuentes</h3>
+      <details class="group p-4 bg-neutral-50 rounded-xl border border-neutral-200">
+        <summary class="font-semibold text-neutral-900 cursor-pointer list-none flex justify-between items-center">
+          <span>¿Cómo copiar emojis de iPhone en Android?</span>
+          <span class="transition-transform group-open:rotate-180">▾</span>
+        </summary>
+        <p class="mt-3 text-neutral-600 text-sm leading-relaxed">Toca o haz clic en cualquier emoji de Apple de esta página y se copiará automáticamente en tu portapapeles. Luego abre WhatsApp o Instagram y selecciona Pegar.</p>
+      </details>
+      <details class="group p-4 bg-neutral-50 rounded-xl border border-neutral-200">
+        <summary class="font-semibold text-neutral-900 cursor-pointer list-none flex justify-between items-center">
+          <span>¿Por qué los emojis de iPhone se ven diferentes en WhatsApp?</span>
+          <span class="transition-transform group-open:rotate-180">▾</span>
+        </summary>
+        <p class="mt-3 text-neutral-600 text-sm leading-relaxed">WhatsApp utiliza el conjunto oficial de emojis con diseño similar al de Apple en todas sus plataformas. Por lo tanto, cualquier emoji que copies aquí se verá idéntico al de un iPhone en tus conversaciones.</p>
+      </details>
+    </div>
+  </main>
+
+  <script>
+    function showGeoToast(msg) {{
+      var toast = document.getElementById('geo-toast');
+      var toastMsg = document.getElementById('geo-toast-msg');
+      toastMsg.innerText = msg;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(function() {{
+        toast.classList.add('translate-y-20', 'opacity-0');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }}, 2000);
+    }}
+  </script>
+
+  {footer_html}
+</body>
+</html>
+"""
+    with open(os.path.join(es_dir, "index.html"), "w", encoding="utf-8") as f:
+        f.write(es_html)
+
 if __name__ == "__main__":
     generate_pages()
+

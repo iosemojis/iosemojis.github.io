@@ -127,6 +127,18 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://iosemojis.github.io/emot-iphone/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://iosemojis.github.io/emojis-iphone-copiar/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
     <loc>https://iosemojis.github.io/category/smileys-emotions/</loc>
     <lastmod>2026-09-21</lastmod>
     <changefreq>weekly</changefreq>

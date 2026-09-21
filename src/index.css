@@ -20,7 +20,7 @@ body {
 }
 
 /* Visible, Elegant Apple-style Horizontal Scrollbar */
-.custom-horizontal-scrollbar {
+@utility custom-horizontal-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: #cbd5e1 transparent;
   scroll-behavior: smooth;
@@ -28,18 +28,18 @@ body {
 }
 
 .custom-horizontal-scrollbar::-webkit-scrollbar {
-  height: 6px;
+  height: 6px !important;
+  display: block !important;
 }
 
 .custom-horizontal-scrollbar::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.04);
+  background: rgba(0, 0, 0, 0.05);
   border-radius: 9999px;
 }
 
 .custom-horizontal-scrollbar::-webkit-scrollbar-thumb {
   background: #cbd5e1;
   border-radius: 9999px;
-  transition: background 0.2s ease;
 }
 
 .custom-horizontal-scrollbar::-webkit-scrollbar-thumb:hover {
