@@ -77,6 +77,12 @@ def get_footer():
             <span class="text-neutral-400">Featured Resource: </span>
             <a href="https://emojisymbols.netlify.app/" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">✨ Emoji Symbols &amp; Font Generator ↗</a>
           </div>
+          <div class="mt-2 text-xs">
+            <span class="text-neutral-400">Official Page: </span>
+            <a href="https://facebook.com/iosemojis" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold inline-flex items-center gap-1">
+              <span>📘 Follow on Facebook ↗</span>
+            </a>
+          </div>
         </div>
         <div>
           <h4 class="font-semibold text-neutral-900 mb-3">Top Categories</h4>
@@ -105,6 +111,7 @@ def get_footer():
             <li><a href="/contact/" class="hover:text-neutral-900">Contact Us</a></li>
             <li><a href="/affiliate-disclosure/" class="hover:text-neutral-900">Affiliate Disclosure</a></li>
             <li><a href="/cookie-policy/" class="hover:text-neutral-900">Cookie Policy</a></li>
+            <li><a href="https://facebook.com/iosemojis" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-medium">📘 Facebook Community ↗</a></li>
           </ul>
         </div>
       </div>

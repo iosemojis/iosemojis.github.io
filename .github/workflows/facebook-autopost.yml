@@ -1,0 +1,61 @@
+﻿name: Facebook Auto-Post (Emoji of the Day)
+
+on:
+  schedule:
+    # Runs twice a day at peak social hours (08:00 UTC & 17:00 UTC)
+    - cron: '0 8,17 * * *'
+  workflow_dispatch:
+    inputs:
+      emoji_slug:
+        description: 'Specific emoji slug to post (leave empty for automatic selection)'
+        required: false
+        default: ''
+      dry_run:
+        description: 'Dry run (generate image and caption only, do not publish to Facebook)'
+        type: boolean
+        required: false
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  post-to-facebook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install Pillow
+
+      - name: Run Facebook Auto-Poster
+        env:
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+        run: |
+          CMD="python scripts/post-to-facebook.py"
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            CMD="$CMD --dry-run"
+          fi
+          if [ -n "${{ inputs.emoji_slug }}" ]; then
+            CMD="$CMD --slug ${{ inputs.emoji_slug }}"
+          fi
+          echo "Executing: $CMD"
+          eval $CMD
+
+      - name: Commit post history
+        if: inputs.dry_run != true
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/facebook_history.json
+          git commit -m "chore: update facebook post history [skip ci]" || echo "No changes to commit"
+          git push || echo "Push skipped or not needed"
