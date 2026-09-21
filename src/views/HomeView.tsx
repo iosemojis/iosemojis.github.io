@@ -353,7 +353,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate, searchInputRef }
           </button>
         </div>
 
-        <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+        <div className="flex items-center gap-2 overflow-x-auto pb-3 custom-horizontal-scrollbar">
           <button
             type="button"
             onClick={() => {
