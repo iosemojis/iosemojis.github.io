@@ -171,6 +171,8 @@ def get_header(active_nav=""):
       <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-neutral-600">
         <a href="/" class="hover:text-neutral-900 transition-colors">Directory</a>
         <a href="/category/hearts-love/" class="hover:text-neutral-900 transition-colors">Hearts & Love</a>
+        <a href="/category/aesthetic-emojis/" class="hover:text-neutral-900 transition-colors">Aesthetic</a>
+        <a href="/category/gaming-streaming/" class="hover:text-neutral-900 transition-colors">Gaming</a>
         <a href="/category/smileys-emotions/" class="hover:text-neutral-900 transition-colors">Smileys</a>
         <a href="/guides/iphone-emoji/" class="hover:text-neutral-900 transition-colors">Guides</a>
         <a href="/about/" class="hover:text-neutral-900 transition-colors">About</a>
@@ -213,7 +215,11 @@ def get_footer():
           <h4 class="font-semibold text-neutral-900 mb-3">Top Categories</h4>
           <ul class="space-y-2 text-xs">
             <li><a href="/category/hearts-love/" class="hover:text-neutral-900">Hearts & Love Emojis</a></li>
+            <li><a href="/category/aesthetic-emojis/" class="hover:text-neutral-900">Aesthetic & Bio Emojis</a></li>
+            <li><a href="/category/gaming-streaming/" class="hover:text-neutral-900">Gaming & Discord Emojis</a></li>
             <li><a href="/category/smileys-emotions/" class="hover:text-neutral-900">Smileys & Emotions</a></li>
+            <li><a href="/category/cute-kawaii/" class="hover:text-neutral-900">Cute & Kawaii Emojis</a></li>
+            <li><a href="/category/gym-fitness/" class="hover:text-neutral-900">Gym & Fitness Emojis</a></li>
             <li><a href="/category/viral-emojis/" class="hover:text-neutral-900">Trending Viral Emojis</a></li>
             <li><a href="/category/festivals-holidays/" class="hover:text-neutral-900">Diwali & Festive Emojis</a></li>
           </ul>
@@ -490,11 +496,38 @@ def generate_pages():
         elif c_slug == "viral-emojis":
             title = "🔥 Trending Viral Emojis & TikTok Slang (Skull, Fire, Melting Face) | iOS Emoji"
             description = "Copy trending viral emojis used across TikTok, Instagram, and iMessage. Discover Gen-Z texting slang for the skull emoji, side eye, and melting face."
+        elif c_slug == "aesthetic-emojis":
+            title = "🫧 Aesthetic Emojis & Soft Symbols — Copy & Paste for Instagram & TikTok Bios | iOS Emoji"
+            description = "Copy trending aesthetic emojis for Instagram bios, Discord, and TikTok. Soft girl, dark academia, vintage, pastel, and fairycore symbols in 1 click."
+        elif c_slug == "gaming-streaming":
+            title = "🎮 Gaming & Esports Emojis — Copy & Paste Video Game Symbols for Discord & Twitch | iOS Emoji"
+            description = "Copy gaming emojis for Discord servers, Twitch streams, and gamer tags. Controllers, 8-bit monsters, championship trophies, dice, and headsets."
+        elif c_slug == "music-audio":
+            title = "🎵 Music & Instrument Emojis — Copy & Paste Audio Notes & Band Symbols | iOS Emoji"
+            description = "Copy musical notes, band instruments, DJ headphones, microphones, and concert emojis in 1 click for Spotify playlist titles and Apple Music bios."
+        elif c_slug == "fashion-beauty":
+            title = "💄 Fashion & Beauty Emojis — Copy & Paste Makeup, Nails & Outfit Symbols | iOS Emoji"
+            description = "Browse and copy chic fashion emojis, lipstick, nail polish, designer dresses, heels, sparkling diamonds, and aesthetic jewelry for OOTD captions."
+        elif c_slug == "money-crypto":
+            title = "💰 Money, Wealth & Crypto Emojis — Copy & Paste Cash Bags, Stocks & Coins | iOS Emoji"
+            description = "Copy money bag, dollar banknotes, crypto coin, stock market charts, and credit card emojis. High-intent financial symbols for trading and wealth posts."
+        elif c_slug == "horror-spooky":
+            title = "🎃 Spooky & Halloween Emojis — Copy & Paste Ghosts, Skulls, Bats & Horror Symbols | iOS Emoji"
+            description = "Scary and spooky emojis for Halloween, horror aesthetics, and gothic texting. Copy pumpkins, ghosts, skulls, bats, vampires, and zombies in 1 click."
+        elif c_slug == "cute-kawaii":
+            title = "🥺 Cute & Kawaii Emojis — Copy & Paste Sweet Faces, Animals & Soft Pastel Symbols | iOS Emoji"
+            description = "The cutest Japanese kawaii emojis and soft aesthetic symbols. Copy pleading faces, cute bunnies, kittens, strawberries, candy, and pink bows."
+        elif c_slug == "gym-fitness":
+            title = "💪 Gym & Workout Emojis — Copy & Paste Fitness, Muscle & Lifting Symbols | iOS Emoji"
+            description = "High-energy workout emojis for gym motivation, fitness tracking, and bodybuilding. Copy flexed biceps, barbell weightlifting, runners, and medals."
         else:
             title = f"{cat['name']} Emojis — Copy & Paste, Meanings & Codes | iOS Emoji"
             description = cat["description"]
 
         cat_emojis = [e for e in emojis if e["category"] == c_slug]
+        if not cat_emojis and "curated_emojis" in cat:
+            curated_set = set(cat["curated_emojis"])
+            cat_emojis = [e for e in emojis if any(s == e["emoji"] or s in e["emoji"] for s in curated_set)]
 
         breadcrumbs = f"""
         <nav aria-label="Breadcrumb" class="text-xs text-neutral-500 mb-6 flex items-center gap-2">

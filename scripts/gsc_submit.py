@@ -23,8 +23,16 @@ BASE_URL = "https://iosemojis.github.io"
 
 # High-priority, high-volume target pages for Google
 IMPORTANT_PAGES = [
-    # Core & Hubs
+    # Core & Category Hubs
     f"{BASE_URL}/",
+    f"{BASE_URL}/category/aesthetic-emojis/",
+    f"{BASE_URL}/category/gaming-streaming/",
+    f"{BASE_URL}/category/music-audio/",
+    f"{BASE_URL}/category/fashion-beauty/",
+    f"{BASE_URL}/category/money-crypto/",
+    f"{BASE_URL}/category/horror-spooky/",
+    f"{BASE_URL}/category/cute-kawaii/",
+    f"{BASE_URL}/category/gym-fitness/",
     f"{BASE_URL}/category/smileys-emotions/",
     f"{BASE_URL}/category/hearts-love/",
     f"{BASE_URL}/category/viral-emojis/",
