@@ -27,6 +27,131 @@ TEMPLATES_DIR = os.path.join(ROOT_DIR, "templates")
 PUBLIC_DIR = os.path.join(ROOT_DIR, "public")
 BASE_URL = "https://iosemojis.github.io"
 
+# High-Volume US Search Keywords & Colloquial Slang Mapping (Ahrefs Easy 100K+ and 10K+ targets)
+POPULAR_SEARCH_KEYWORDS = {
+    "face-with-tears-of-joy": {
+        "primary": "Laughing Emoji",
+        "aliases": ["laughing emoji", "crying laughing emoji", "laugh emoji", "lol emoji", "funny emoji"],
+        "slang": "In popular texting and social media slang, this is the #1 universally searched 'Laughing Emoji' used to express intense laughter or finding a joke hilarious."
+    },
+    "loudly-crying-face": {
+        "primary": "Crying Emoji",
+        "aliases": ["crying emoji", "sob emoji", "sad crying emoji", "bawling emoji", "tears emoji"],
+        "slang": "Widely known across the US as the official 'Crying Emoji'. Used both for genuine sadness and dramatic comedic exaggeration ('I'm crying rn')."
+    },
+    "red-heart": {
+        "primary": "Heart Emoji",
+        "aliases": ["heart emoji", "red heart emoji", "love emoji", "classic heart", "heart symbol"],
+        "slang": "The quintessential 'Heart Emoji'. Searched by millions daily for texting loved ones, expressing romance, deep friendship, and heartfelt support."
+    },
+    "thumbs-up": {
+        "primary": "Thumbs Up Emoji",
+        "aliases": ["thumbs up emoji", "like emoji", "yes emoji", "thumbs up sign", "approval emoji"],
+        "slang": "The standard 'Thumbs Up Emoji' signifying agreement, approval, or 'sounds good'. In modern Gen-Z texting, sending it alone can sometimes be interpreted as blunt or passive-aggressive."
+    },
+    "skull": {
+        "primary": "Skull Emoji (I'm Dead)",
+        "aliases": ["skull emoji", "dead emoji", "i'm dead emoji", "skeleton emoji", "crying laughing skull"],
+        "slang": "In TikTok, Instagram, and Gen-Z texting culture, the 💀 'Skull Emoji' has replaced the crying laughing emoji to mean 'I am dead from laughter' or 'this killed me'."
+    },
+    "fire": {
+        "primary": "Fire Emoji (Lit / Flame)",
+        "aliases": ["fire emoji", "flame emoji", "lit emoji", "hot emoji", "fire trend emoji"],
+        "slang": "The go-to 'Fire Emoji' used to say something is amazingly cool, attractive, impressive, or 'straight fire / lit'."
+    },
+    "nerd-face": {
+        "primary": "Nerd Emoji",
+        "aliases": ["nerd emoji", "geek emoji", "glasses emoji", "dork emoji", "smart emoji"],
+        "slang": "The 'Nerd Emoji' is widely used in texting memes to mock over-explaining trivial facts ('um, actually 🤓') or celebrate geeky achievements."
+    },
+    "face-with-rolling-eyes": {
+        "primary": "Eye Roll / Side Eye Emoji",
+        "aliases": ["side eye emoji", "eye roll emoji", "rolling eyes emoji", "annoyed emoji", "sarcastic emoji"],
+        "slang": "The classic 'Eye Roll Emoji' expressing exasperation, disbelief, boredom, or sarcastic skepticism."
+    },
+    "eyes": {
+        "primary": "Side Eye / Looking Eyes Emoji",
+        "aliases": ["side eye emoji", "looking eyes", "bombastic side eye", "shifty eyes emoji"],
+        "slang": "The famous 'Side Eye Emoji' popularized by viral TikTok trends ('bombastic side eye'). Used to signal suspicion, interest in juicy drama/tea, or checking someone out."
+    },
+    "crying-face": {
+        "primary": "Sad Emoji (Tear Face)",
+        "aliases": ["sad emoji", "tear emoji", "single tear emoji", "sad face"],
+        "slang": "The classic 'Sad Emoji' conveying quiet sorrow, feeling touched, hurt feelings, or subtle disappointment."
+    },
+    "person-shrugging": {
+        "primary": "Shrug Emoji",
+        "aliases": ["shrug emoji", "shrugging emoji", "idk emoji", "dunno emoji", "whatever emoji"],
+        "slang": "The universal 'Shrug Emoji' signifying 'I don't know', lack of concern, or cluelessness."
+    },
+    "woman-shrugging": {
+        "primary": "Shrug Emoji (Woman)",
+        "aliases": ["shrug emoji", "woman shrugging emoji", "idk girl emoji"],
+        "slang": "Frequently searched variation of the Shrug Emoji used to express 'idk' or nonchalance."
+    },
+    "man-shrugging": {
+        "primary": "Shrug Emoji (Man)",
+        "aliases": ["shrug emoji", "man shrugging emoji", "idk guy emoji"],
+        "slang": "Frequently searched variation of the Shrug Emoji used to convey casual indifference."
+    },
+    "smiling-face-with-smiling-eyes": {
+        "primary": "Smile Emoji / Happy Emoji",
+        "aliases": ["smile emoji", "happy emoji", "happy face emoji", "blushing smile emoji", "smiling face"],
+        "slang": "The standard 'Happy / Smile Emoji' used in everyday texting to radiate warmth, genuine kindness, and pleasant vibes."
+    },
+    "grinning-face": {
+        "primary": "Smile Emoji",
+        "aliases": ["smile emoji", "happy emoji", "big smile emoji", "cheerful emoji", "smiley"],
+        "slang": "Conveys bright energy, good humor, and friendly excitement."
+    },
+    "enraged-face": {
+        "primary": "Angry Emoji (Mad Face)",
+        "aliases": ["angry emoji", "mad emoji", "red mad face", "rage emoji", "furious emoji"],
+        "slang": "The red 'Angry Emoji' used to show boiling rage, extreme frustration, or indignant annoyance."
+    },
+    "pouting-face": {
+        "primary": "Angry Emoji",
+        "aliases": ["angry emoji", "mad face emoji", "frustrated emoji", "pouting emoji"],
+        "slang": "Expresses intense displeasure, grumpiness, or being annoyed at a situation."
+    },
+    "astonished-face": {
+        "primary": "Shocked Emoji",
+        "aliases": ["shocked emoji", "surprised emoji", "gasp emoji", "speechless emoji", "stunned face"],
+        "slang": "The 'Shocked Emoji' used when you receive jaw-dropping news or see something unbelievable."
+    },
+    "face-screaming-in-fear": {
+        "primary": "Shocked Emoji (Scream)",
+        "aliases": ["shocked emoji", "screaming emoji", "home alone face", "omg emoji", "scared face"],
+        "slang": "An iconic emoji inspired by Munch's 'The Scream'. Used for exaggerated shock, sheer panic, or dramatic internet disbelief."
+    },
+    "sparkles": {
+        "primary": "Star Emoji / Sparkle Emoji",
+        "aliases": ["star emoji", "sparkles emoji", "glitter emoji", "stars emoji", "aesthetic stars"],
+        "slang": "One of the most searched emojis on TikTok and Instagram. Used to add ✨aesthetic flair✨, indicate irony, or highlight excitement."
+    },
+    "star": {
+        "primary": "Star Emoji",
+        "aliases": ["star emoji", "gold star emoji", "yellow star", "favorite star emoji"],
+        "slang": "Classic symbol for success, high ratings, awards, or celestial night skies."
+    },
+    "blue-heart": {
+        "primary": "Blue Emoji / Blue Heart Emoji",
+        "aliases": ["blue emoji", "blue heart emoji", "blue love emoji", "ocean heart"],
+        "slang": "Signifies trust, loyalty, deep peaceful friendship, or support for sports teams and causes."
+    },
+    "heart-on-fire": {
+        "primary": "Heart on Fire Emoji",
+        "aliases": ["heart emoji", "fire heart emoji", "burning heart", "passionate love emoji"],
+        "slang": "Represents intense burning passion, ferocious romantic desire, or moving past severe heartbreak."
+    },
+    "melting-face": {
+        "primary": "Melting Face Emoji",
+        "aliases": ["melting face emoji", "sarcastic smile emoji", "melting emoji", "overwhelmed emoji"],
+        "slang": "A modern favorite expressing smiling through pain, social awkwardness, sheer exhaustion, or sweltering summer heat."
+    }
+}
+
+
 def load_json(path):
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
@@ -152,9 +277,52 @@ def generate_pages():
         cat_info = cat_by_slug.get(cat_slug, {"name": "Emojis", "slug": "smileys-emotions"})
 
         canonical_url = f"{BASE_URL}/emoji/{slug}/"
-        title = f"{emo['emoji']} {emo['name']} iPhone Emoji — Meaning, Copy & Download Apple Emoji PNG"
-        description = f"Copy {emo['emoji']} {emo['name']} iPhone emoji in 1 click. Discover the true meaning of this apple emoji, download 512px transparent PNG, and learn how to use emot iPhone on Android."
-        h1 = f"{emo['emoji']} {emo['name']} iPhone Emoji"
+        
+        # Check if mapped to high-volume Ahrefs search queries (Easy KD, >100K & >10K)
+        if slug in POPULAR_SEARCH_KEYWORDS:
+            pop = POPULAR_SEARCH_KEYWORDS[slug]
+            primary_term = pop["primary"]
+            aliases = pop["aliases"]
+            slang_note = pop.get("slang", "")
+            title = f"{emo['emoji']} {primary_term} ({emo['name']}) iPhone Emoji — Meaning & Copy & Paste"
+            description = f"Copy & paste the {emo['emoji']} {primary_term} ({emo['name']}) iPhone emoji with 1 click. Discover real texting meanings, TikTok slang context, Unicode codes, and Android compatibility."
+            h1 = f"{emo['emoji']} {primary_term} <span class=\"text-neutral-400 text-lg md:text-2xl font-normal block md:inline\">({emo['name']})</span>"
+        else:
+            title = f"{emo['emoji']} {emo['name']} iPhone Emoji — Meaning & 1-Click Copy & Paste (Apple Keyboard)"
+            description = f"Copy & paste the {emo['emoji']} {emo['name']} iPhone emoji with 1 click. Discover texting meanings, visual appearance across iOS & Android, Unicode code points, and copy snippets."
+            h1 = f"{emo['emoji']} {emo['name']} iPhone Emoji"
+            aliases = [f"{emo['name'].lower()} emoji", f"copy {emo['name'].lower()}", f"{emo['emoji']} emoji", f"iphone {emo['name'].lower()}", f"{emo['name'].lower()} meaning"]
+            slang_note = ""
+
+        # High-Intent SEO Tag Cloud ("Also Known As & Popular Search Terms")
+        glyph = emo["emoji"]
+        pills_list = []
+        for a in aliases:
+            pills_list.append(
+                f'<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-800 text-xs font-medium cursor-pointer transition-colors" onclick="navigator.clipboard.writeText(\'{glyph}\'); let orig=this.innerHTML; this.innerHTML=\'<span>✓</span><span>Copied {glyph}!</span>\'; setTimeout(()=>this.innerHTML=orig, 1500);"><span>🔍</span><span>{a}</span></span>'
+            )
+        pills_html = " ".join(pills_list)
+        slang_box = f'<p class="text-xs text-neutral-600 bg-neutral-50 p-3 rounded-xl border border-neutral-200/80 leading-relaxed mt-2"><strong class="text-neutral-900">💬 Texting &amp; Slang Context:</strong> {slang_note}</p>' if slang_note else ""
+
+        popular_search_terms_block = f"""
+        <!-- Popular Search Terms & Also Known As (High-Intent Ahrefs SEO) -->
+        <section class="bg-white rounded-2xl p-6 shadow-xs border border-neutral-200 space-y-3">
+          <div class="flex items-center justify-between">
+            <h2 class="text-lg font-bold text-neutral-900 flex items-center gap-2">
+              <span>🔥</span>
+              <span>Also Known As &amp; Popular Search Terms</span>
+            </h2>
+            <span class="text-[11px] bg-blue-50 text-blue-700 font-semibold px-2 py-0.5 rounded-md">Trending Searches</span>
+          </div>
+          <p class="text-xs text-neutral-500 leading-relaxed">
+            In everyday texting, social media, and Google searches, users search for this emoji using these high-volume terms:
+          </p>
+          <div class="flex flex-wrap gap-2 pt-1">
+            {pills_html}
+          </div>
+          {slang_box}
+        </section>
+        """
 
         # Breadcrumbs
         breadcrumbs = f"""
@@ -300,6 +468,7 @@ def generate_pages():
         rendered = rendered.replace("{{category_name}}", cat_info["name"])
         rendered = rendered.replace("{{faqs_html}}", faqs_html)
         rendered = rendered.replace("{{related_emojis_html}}", related_emojis_html)
+        rendered = rendered.replace("{{popular_search_terms_block}}", popular_search_terms_block)
 
         with open(os.path.join(out_dir, "index.html"), "w", encoding="utf-8") as f:
             f.write(rendered)
@@ -312,8 +481,18 @@ def generate_pages():
         os.makedirs(out_dir, exist_ok=True)
 
         canonical_url = f"{BASE_URL}/category/{c_slug}/"
-        title = f"{cat['name']} Emojis — Copy, Meanings & Codes | iOS Emoji"
-        description = cat["description"]
+        if c_slug == "hearts-love":
+            title = "❤️ Heart Emoji Collection (All Colors) — Copy & Paste Heart Emojis & Meanings | iOS Emoji"
+            description = "Explore and copy all 20+ heart emojis for iPhone, Android, and WhatsApp. Discover the true secret meaning of every heart emoji color, from red and pink to burning hearts."
+        elif c_slug == "smileys-emotions":
+            title = "😀 Smileys, Laughing & Crying Emojis — Copy & Paste iPhone Faces | iOS Emoji"
+            description = "Instant 1-click copy for all laughing emojis, crying emojis, sad faces, and expressive smileys. Full texting meanings and official Unicode Apple glyphs."
+        elif c_slug == "viral-emojis":
+            title = "🔥 Trending Viral Emojis & TikTok Slang (Skull, Fire, Melting Face) | iOS Emoji"
+            description = "Copy trending viral emojis used across TikTok, Instagram, and iMessage. Discover Gen-Z texting slang for the skull emoji, side eye, and melting face."
+        else:
+            title = f"{cat['name']} Emojis — Copy & Paste, Meanings & Codes | iOS Emoji"
+            description = cat["description"]
 
         cat_emojis = [e for e in emojis if e["category"] == c_slug]
 
