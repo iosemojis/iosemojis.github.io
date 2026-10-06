@@ -5,11 +5,29 @@ import { trackEvent } from '../utils/analytics.ts';
 interface HeaderProps {
   onNavigate: (path: string) => void;
   onSearchFocus?: () => void;
+  currentLang?: string;
 }
+
+const LANG_OPTIONS: { code: string; flag: string; label: string; path: string }[] = [
+  { code: 'en', flag: '🇺🇸', label: 'English', path: '/' },
+  { code: 'es', flag: '🇪🇸', label: 'Español', path: '/es/' },
+  { code: 'pt', flag: '🇧🇷', label: 'Português', path: '/pt/' },
+  { code: 'de', flag: '🇩🇪', label: 'Deutsch', path: '/de/' },
+  { code: 'fr', flag: '🇫🇷', label: 'Français', path: '/fr/' },
+  { code: 'it', flag: '🇮🇹', label: 'Italiano', path: '/it/' },
+  { code: 'id', flag: '🇮🇩', label: 'Indonesia', path: '/id/' },
+  { code: 'ja', flag: '🇯🇵', label: '日本語', path: '/ja/' },
+];
 
 export type Theme = 'light' | 'dark';
 
-export const Header: React.FC<HeaderProps> = ({ onNavigate, onSearchFocus }) => {
+export const Header: React.FC<HeaderProps> = ({
+  onNavigate,
+  onSearchFocus,
+  currentLang = 'en',
+}) => {
+  const activeLangObj =
+    LANG_OPTIONS.find((l) => l.code === currentLang) || LANG_OPTIONS[0];
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('theme');
@@ -121,19 +139,61 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate, onSearchFocus }) => 
             Guides
           </a>
           <a
-            href="/about/"
-            onClick={(e) => {
-              e.preventDefault();
-              onNavigate('/about/');
-            }}
-            className="hover:text-neutral-900 dark:hover:text-white transition-colors"
+            href="https://emojisymbols.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden lg:inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-full bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 font-semibold border border-amber-200/60 dark:border-amber-800/60 hover:bg-amber-100 transition-colors"
           >
-            About
+            <span>✨</span>
+            <span>EmojiSymbols ↗</span>
           </a>
         </nav>
 
         {/* Quick Action Controls */}
         <div className="flex items-center gap-2 sm:gap-3">
+          {/* Language Selector Dropdown */}
+          <div className="relative group">
+            <button
+              type="button"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-xs font-semibold text-neutral-700 dark:text-neutral-200 transition-all cursor-pointer shadow-2xs"
+              aria-label="Select Language"
+            >
+              <span>{activeLangObj.flag}</span>
+              <span className="uppercase">{activeLangObj.code}</span>
+              <span className="text-[10px] text-neutral-400">▾</span>
+            </button>
+            <div className="absolute right-0 top-full mt-1.5 hidden group-hover:block group-focus-within:block bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl shadow-xl py-2 w-44 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
+              <div className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-neutral-400">
+                Language / Country
+              </div>
+              {LANG_OPTIONS.map((item) => {
+                const isActive = item.code === activeLangObj.code;
+                return (
+                  <a
+                    key={item.code}
+                    href={item.path}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onNavigate(item.path);
+                    }}
+                    className={`flex items-center justify-between px-3 py-1.5 text-xs transition-colors ${
+                      isActive
+                        ? 'bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 font-bold'
+                        : 'text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2">
+                      <span>{item.flag}</span>
+                      <span>{item.label}</span>
+                    </span>
+                    <span className="text-[10px] uppercase font-mono text-neutral-400">
+                      {item.code}
+                    </span>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
           {onSearchFocus && (
             <button
               type="button"

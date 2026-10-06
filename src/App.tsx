@@ -9,6 +9,8 @@ import {
   CATEGORY_BY_SLUG,
   GUIDE_BY_SLUG,
   FESTIVAL_BY_SLUG,
+  MULTILINGUAL_BY_CODE,
+  MULTILINGUAL_LANGUAGES,
 } from './data/index.ts';
 import { Header } from './components/Header.tsx';
 import { Footer } from './components/Footer.tsx';
@@ -79,6 +81,9 @@ export default function App() {
   useEffect(() => {
     const clean = currentPath.replace(/\/$/, '') || '/';
     const baseUrl = 'https://iosemojis.github.io';
+    const supportedLangs = ['es', 'pt', 'de', 'fr', 'it', 'id', 'ja'];
+    const isMultilingualRoute = supportedLangs.includes(clean.slice(1));
+    const currentLang = isMultilingualRoute ? clean.slice(1) : 'en';
 
     let title =
       'iOS Emoji & iPhone Emoji Keyboard — Copy Apple Emoji & Emot iPhone Online';
@@ -86,8 +91,12 @@ export default function App() {
       'Copy & paste authentic iPhone emoji, Apple emoji, and emoji for iOS with 1 click. Complete directory of emojis on Apple, send emoji to iPhone, and download emot iPhone for Android.';
     let canonical = `${baseUrl}/`;
 
-    if (clean === '/') {
-      // Home default
+    const langConfig = MULTILINGUAL_BY_CODE.get(currentLang);
+
+    if ((clean === '/' || isMultilingualRoute) && langConfig) {
+      title = langConfig.meta_title;
+      description = langConfig.meta_description;
+      canonical = `${baseUrl}${langConfig.url_path}`;
     } else if (clean.startsWith('/emoji/')) {
       const slug = clean.replace('/emoji/', '');
       const emo = EMOJI_BY_SLUG.get(slug);
@@ -224,6 +233,26 @@ export default function App() {
       ]
     });
 
+    // Update Hreflang Tags for 8 Target Languages + x-default
+    MULTILINGUAL_LANGUAGES.forEach((l) => {
+      let hl = document.querySelector(`link[rel="alternate"][hreflang="${l.code}"]`);
+      if (!hl) {
+        hl = document.createElement('link');
+        hl.setAttribute('rel', 'alternate');
+        hl.setAttribute('hreflang', l.code);
+        document.head.appendChild(hl);
+      }
+      hl.setAttribute('href', `${baseUrl}${l.url_path}`);
+    });
+    let hlDef = document.querySelector('link[rel="alternate"][hreflang="x-default"]');
+    if (!hlDef) {
+      hlDef = document.createElement('link');
+      hlDef.setAttribute('rel', 'alternate');
+      hlDef.setAttribute('hreflang', 'x-default');
+      document.head.appendChild(hlDef);
+    }
+    hlDef.setAttribute('href', `${baseUrl}/`);
+
     // Track page view event
     trackEvent('page_view', { path: clean, title });
   }, [currentPath]);
@@ -231,11 +260,15 @@ export default function App() {
   // Route Resolver
   const renderCurrentView = () => {
     const clean = currentPath.replace(/\/$/, '') || '/';
+    const supportedLangs = ['es', 'pt', 'de', 'fr', 'it', 'id', 'ja'];
+    const isMultilingualRoute = supportedLangs.includes(clean.slice(1));
+    const currentLang = isMultilingualRoute ? clean.slice(1) : 'en';
 
-    // 1. Homepage
-    if (clean === '/') {
+    // 1. Homepage & 7 Localized Keyboards
+    if (clean === '/' || isMultilingualRoute) {
       return (
         <HomeView
+          lang={currentLang}
           onNavigate={navigate}
           searchInputRef={searchInputRef}
         />
@@ -310,9 +343,16 @@ export default function App() {
     return <NotFoundView onNavigate={navigate} />;
   };
 
+  const cleanPath = currentPath.replace(/\/$/, '') || '/';
+  const supportedLangsList = ['es', 'pt', 'de', 'fr', 'it', 'id', 'ja'];
+  const activeLangCode = supportedLangsList.includes(cleanPath.slice(1))
+    ? cleanPath.slice(1)
+    : 'en';
+
   return (
     <div className="min-h-screen flex flex-col justify-between bg-slate-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 transition-colors">
       <Header
+        currentLang={activeLangCode}
         onNavigate={navigate}
         onSearchFocus={() => {
           if (currentPath !== '/') {

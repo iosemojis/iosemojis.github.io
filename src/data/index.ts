@@ -2,6 +2,7 @@ import emojisData from '../../data/emojis.json';
 import categoriesData from '../../data/categories.json';
 import guidesData from '../../data/guides.json';
 import festivalsData from '../../data/festivals.json';
+import multilingualData from '../../data/multilingual_keyboard_schema.json';
 
 export interface EmojiItem {
   slug: string;
@@ -119,4 +120,30 @@ export const GUIDE_BY_SLUG = new Map<string, GuideItem>(
 
 export const FESTIVAL_BY_SLUG = new Map<string, FestivalItem>(
   FESTIVALS.map((f) => [f.slug, f])
+);
+
+export interface MultilingualSection {
+  id: string;
+  keyword: string;
+  h2: string;
+}
+
+export interface MultilingualLanguage {
+  code: string;
+  name: string;
+  countries: string[];
+  url_path: string;
+  primary_keyword: string;
+  meta_title: string;
+  meta_description: string;
+  h1: string;
+  h2_sections: MultilingualSection[];
+}
+
+export const MULTILINGUAL_LANGUAGES: MultilingualLanguage[] = (
+  multilingualData as any
+).languages as MultilingualLanguage[];
+
+export const MULTILINGUAL_BY_CODE = new Map<string, MultilingualLanguage>(
+  MULTILINGUAL_LANGUAGES.map((l) => [l.code, l])
 );

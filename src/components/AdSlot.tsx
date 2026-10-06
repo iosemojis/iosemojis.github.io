@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 
 interface AdSlotProps {
+  id?: string;
+  label?: string;
   slot?: string;
   format?: string;
   minHeight?: string;
