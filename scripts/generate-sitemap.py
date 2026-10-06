@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
 Generates clean production sitemap.xml with ONLY the 8 core multilingual keyboard pages.
-Matches the winning architecture of top high-RPM emoji keyboards (like emojikeyboard.top).
+Matches the winning schema of emojikeyboard.top (100% accepted by Google Search Console).
 """
 
 import os
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 
 if sys.stdout.encoding != 'utf-8':
     try:
@@ -20,40 +20,35 @@ DIST_DIR = os.path.join(ROOT_DIR, "dist")
 BASE_URL = "https://iosemojis.github.io"
 
 LANGUAGES = [
-    {"code": "en", "path": "/", "priority": "1.0", "changefreq": "daily"},
-    {"code": "es", "path": "/es/", "priority": "0.9", "changefreq": "daily"},
-    {"code": "pt", "path": "/pt/", "priority": "0.9", "changefreq": "daily"},
-    {"code": "de", "path": "/de/", "priority": "0.9", "changefreq": "daily"},
-    {"code": "fr", "path": "/fr/", "priority": "0.9", "changefreq": "daily"},
-    {"code": "it", "path": "/it/", "priority": "0.9", "changefreq": "daily"},
-    {"code": "id", "path": "/id/", "priority": "0.9", "changefreq": "daily"},
-    {"code": "ja", "path": "/ja/", "priority": "0.9", "changefreq": "daily"},
+    {"code": "en", "path": "/", "priority": "1.00"},
+    {"code": "es", "path": "/es/", "priority": "0.90"},
+    {"code": "pt", "path": "/pt/", "priority": "0.90"},
+    {"code": "de", "path": "/de/", "priority": "0.90"},
+    {"code": "fr", "path": "/fr/", "priority": "0.90"},
+    {"code": "it", "path": "/it/", "priority": "0.90"},
+    {"code": "id", "path": "/id/", "priority": "0.90"},
+    {"code": "ja", "path": "/ja/", "priority": "0.90"},
 ]
 
 def generate_sitemap():
-    today = datetime.now().strftime("%Y-%m-%d")
+    now_iso = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S+00:00")
 
     sitemap_lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
-        '        xmlns:xhtml="http://www.w3.org/1999/xhtml">'
+        '<urlset',
+        '      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+        '      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"',
+        '      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9',
+        '            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">'
     ]
 
     for lang in LANGUAGES:
         loc = f"{BASE_URL}{lang['path']}"
-        sitemap_lines.append("  <url>")
-        sitemap_lines.append(f"    <loc>{loc}</loc>")
-        sitemap_lines.append(f"    <lastmod>{today}</lastmod>")
-        sitemap_lines.append(f"    <changefreq>{lang['changefreq']}</changefreq>")
-        sitemap_lines.append(f"    <priority>{lang['priority']}</priority>")
-
-        # Add Google-recommended hreflang annotations across all 8 languages + x-default
-        for alt in LANGUAGES:
-            alt_loc = f"{BASE_URL}{alt['path']}"
-            sitemap_lines.append(f'    <xhtml:link rel="alternate" hreflang="{alt["code"]}" href="{alt_loc}"/>')
-        sitemap_lines.append(f'    <xhtml:link rel="alternate" hreflang="x-default" href="{BASE_URL}/"/>')
-
-        sitemap_lines.append("  </url>")
+        sitemap_lines.append("<url>")
+        sitemap_lines.append(f"  <loc>{loc}</loc>")
+        sitemap_lines.append(f"  <lastmod>{now_iso}</lastmod>")
+        sitemap_lines.append(f"  <priority>{lang['priority']}</priority>")
+        sitemap_lines.append("</url>")
 
     sitemap_lines.append("</urlset>\n")
     sitemap_content = "\n".join(sitemap_lines)
@@ -70,7 +65,7 @@ def generate_sitemap():
             os.makedirs(os.path.dirname(path), exist_ok=True)
             with open(path, "w", encoding="utf-8") as f:
                 f.write(sitemap_content)
-            print(f"✅ Generated 8-URL sitemap.xml at: {path}")
+            print(f"✅ Generated clean 8-URL sitemap.xml at: {path}")
 
     # Write clean robots.txt
     robots_content = f"""User-agent: *

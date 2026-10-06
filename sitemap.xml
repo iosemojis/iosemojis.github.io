@@ -1,124 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>https://iosemojis.github.io/</loc>
-    <lastmod>2026-10-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://iosemojis.github.io/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://iosemojis.github.io/es/"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://iosemojis.github.io/pt/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://iosemojis.github.io/de/"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://iosemojis.github.io/fr/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://iosemojis.github.io/it/"/>
-    <xhtml:link rel="alternate" hreflang="id" href="https://iosemojis.github.io/id/"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://iosemojis.github.io/ja/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://iosemojis.github.io/"/>
-  </url>
-  <url>
-    <loc>https://iosemojis.github.io/es/</loc>
-    <lastmod>2026-10-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://iosemojis.github.io/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://iosemojis.github.io/es/"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://iosemojis.github.io/pt/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://iosemojis.github.io/de/"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://iosemojis.github.io/fr/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://iosemojis.github.io/it/"/>
-    <xhtml:link rel="alternate" hreflang="id" href="https://iosemojis.github.io/id/"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://iosemojis.github.io/ja/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://iosemojis.github.io/"/>
-  </url>
-  <url>
-    <loc>https://iosemojis.github.io/pt/</loc>
-    <lastmod>2026-10-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://iosemojis.github.io/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://iosemojis.github.io/es/"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://iosemojis.github.io/pt/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://iosemojis.github.io/de/"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://iosemojis.github.io/fr/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://iosemojis.github.io/it/"/>
-    <xhtml:link rel="alternate" hreflang="id" href="https://iosemojis.github.io/id/"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://iosemojis.github.io/ja/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://iosemojis.github.io/"/>
-  </url>
-  <url>
-    <loc>https://iosemojis.github.io/de/</loc>
-    <lastmod>2026-10-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://iosemojis.github.io/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://iosemojis.github.io/es/"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://iosemojis.github.io/pt/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://iosemojis.github.io/de/"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://iosemojis.github.io/fr/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://iosemojis.github.io/it/"/>
-    <xhtml:link rel="alternate" hreflang="id" href="https://iosemojis.github.io/id/"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://iosemojis.github.io/ja/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://iosemojis.github.io/"/>
-  </url>
-  <url>
-    <loc>https://iosemojis.github.io/fr/</loc>
-    <lastmod>2026-10-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://iosemojis.github.io/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://iosemojis.github.io/es/"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://iosemojis.github.io/pt/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://iosemojis.github.io/de/"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://iosemojis.github.io/fr/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://iosemojis.github.io/it/"/>
-    <xhtml:link rel="alternate" hreflang="id" href="https://iosemojis.github.io/id/"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://iosemojis.github.io/ja/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://iosemojis.github.io/"/>
-  </url>
-  <url>
-    <loc>https://iosemojis.github.io/it/</loc>
-    <lastmod>2026-10-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://iosemojis.github.io/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://iosemojis.github.io/es/"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://iosemojis.github.io/pt/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://iosemojis.github.io/de/"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://iosemojis.github.io/fr/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://iosemojis.github.io/it/"/>
-    <xhtml:link rel="alternate" hreflang="id" href="https://iosemojis.github.io/id/"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://iosemojis.github.io/ja/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://iosemojis.github.io/"/>
-  </url>
-  <url>
-    <loc>https://iosemojis.github.io/id/</loc>
-    <lastmod>2026-10-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://iosemojis.github.io/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://iosemojis.github.io/es/"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://iosemojis.github.io/pt/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://iosemojis.github.io/de/"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://iosemojis.github.io/fr/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://iosemojis.github.io/it/"/>
-    <xhtml:link rel="alternate" hreflang="id" href="https://iosemojis.github.io/id/"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://iosemojis.github.io/ja/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://iosemojis.github.io/"/>
-  </url>
-  <url>
-    <loc>https://iosemojis.github.io/ja/</loc>
-    <lastmod>2026-10-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://iosemojis.github.io/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://iosemojis.github.io/es/"/>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://iosemojis.github.io/pt/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://iosemojis.github.io/de/"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://iosemojis.github.io/fr/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://iosemojis.github.io/it/"/>
-    <xhtml:link rel="alternate" hreflang="id" href="https://iosemojis.github.io/id/"/>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://iosemojis.github.io/ja/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://iosemojis.github.io/"/>
-  </url>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+  <loc>https://iosemojis.github.io/</loc>
+  <lastmod>2026-10-06T08:39:10+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://iosemojis.github.io/es/</loc>
+  <lastmod>2026-10-06T08:39:10+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://iosemojis.github.io/pt/</loc>
+  <lastmod>2026-10-06T08:39:10+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://iosemojis.github.io/de/</loc>
+  <lastmod>2026-10-06T08:39:10+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://iosemojis.github.io/fr/</loc>
+  <lastmod>2026-10-06T08:39:10+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://iosemojis.github.io/it/</loc>
+  <lastmod>2026-10-06T08:39:10+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://iosemojis.github.io/id/</loc>
+  <lastmod>2026-10-06T08:39:10+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://iosemojis.github.io/ja/</loc>
+  <lastmod>2026-10-06T08:39:10+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
 </urlset>
